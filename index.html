@@ -615,6 +615,48 @@
         </div>
       </div>
       <div id="charts-grid" class="charts-grid"></div>
+
+      <!-- TPOC AI 模型封關得票率預測專區（與傳統抽樣民調區隔） -->
+      <section class="card" style="margin-top:22px;border-top-color:#6b21a8;">
+        <div class="city-header">
+          <div class="city-title">
+            <h2>AI 模型專區｜TPOC 11 月六都「最終得票率預測」</h2>
+            <span class="badge badge-ai">非傳統抽樣民調・大數據與矽基樣本模型</span>
+          </div>
+          <span class="matchup">預測格局：藍三綠三（僅新北市於得票率推估出現領先交替）</span>
+        </div>
+        <p class="city-note">結合歷屆選票、各年齡層投票率、QuickseeK 輿情與 Silicon Sampling 模擬推估（2026/11 月中旬公布；僅呈現與傳統民調對照參考）。</p>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:12px 24px;">
+          <div>
+            <div style="display:flex;justify-content:space-between;font-size:12.5px;margin-bottom:4px;"><span><strong>臺北市</strong>｜蔣萬安 52.07% vs 沈伯洋 47.93%</span><span class="gap-kmt">蔣 +4.14%</span></div>
+            <div style="display:flex;height:14px;border-radius:2px;overflow:hidden;border:1px solid var(--border);"><div style="width:52.07%;background:#2563eb;" title="蔣萬安 52.07%"></div><div style="width:47.93%;background:#16a34a;" title="沈伯洋 47.93%"></div></div>
+          </div>
+          <div>
+            <div style="display:flex;justify-content:space-between;font-size:12.5px;margin-bottom:4px;"><span><strong>新北市</strong>｜李四川 49.79% vs 蘇巧慧 50.21%</span><span class="gap-dpp">蘇 +0.42%</span></div>
+            <div style="display:flex;height:14px;border-radius:2px;overflow:hidden;border:1px solid var(--border);"><div style="width:49.79%;background:#2563eb;" title="李四川 49.79%"></div><div style="width:50.21%;background:#16a34a;" title="蘇巧慧 50.21%"></div></div>
+          </div>
+          <div>
+            <div style="display:flex;justify-content:space-between;font-size:12.5px;margin-bottom:4px;"><span><strong>桃園市</strong>｜張善政 58.57% vs 黃世杰 41.43%</span><span class="gap-kmt">張 +17.14%</span></div>
+            <div style="display:flex;height:14px;border-radius:2px;overflow:hidden;border:1px solid var(--border);"><div style="width:58.57%;background:#2563eb;" title="張善政 58.57%"></div><div style="width:41.43%;background:#16a34a;" title="黃世杰 41.43%"></div></div>
+          </div>
+          <div>
+            <div style="display:flex;justify-content:space-between;font-size:12.5px;margin-bottom:4px;"><span><strong>臺中市</strong>｜江啟臣 53.72% vs 何欣純 46.28%</span><span class="gap-kmt">江 +7.44%</span></div>
+            <div style="display:flex;height:14px;border-radius:2px;overflow:hidden;border:1px solid var(--border);"><div style="width:53.72%;background:#2563eb;" title="江啟臣 53.72%"></div><div style="width:46.28%;background:#16a34a;" title="何欣純 46.28%"></div></div>
+          </div>
+          <div>
+            <div style="display:flex;justify-content:space-between;font-size:12.5px;margin-bottom:4px;"><span><strong>臺南市</strong>｜謝龍介 44.77% vs 陳亭妃 55.23%</span><span class="gap-dpp">陳 +10.46%</span></div>
+            <div style="display:flex;height:14px;border-radius:2px;overflow:hidden;border:1px solid var(--border);"><div style="width:44.77%;background:#2563eb;" title="謝龍介 44.77%"></div><div style="width:55.23%;background:#16a34a;" title="陳亭妃 55.23%"></div></div>
+          </div>
+          <div>
+            <div style="display:flex;justify-content:space-between;font-size:12.5px;margin-bottom:4px;"><span><strong>高雄市</strong>｜柯志恩 45.00% vs 賴瑞隆 55.00%</span><span class="gap-dpp">賴 +10.00%</span></div>
+            <div style="display:flex;height:14px;border-radius:2px;overflow:hidden;border:1px solid var(--border);"><div style="width:45.00%;background:#2563eb;" title="柯志恩 45.00%"></div><div style="width:55.00%;background:#16a34a;" title="賴瑞隆 55.00%"></div></div>
+          </div>
+        </div>
+        <div class="chart-card-foot" style="margin-top:12px;">
+          <span>出處：TPOC台灣議題研究中心（11/11 第八期 AI 模擬與 11 月中旬得票率預測／上報、蕃新聞、鏡新聞）</span>
+          <button class="btn-jump" onclick="goToCityTable('tpoc-forecast')">查看完整 TPOC 數據表 →</button>
+        </div>
+      </section>
     </div>
 
     <!-- 分頁 2：各市完整數據表 -->
@@ -627,6 +669,7 @@
           <a class="pill" href="#taichung"><span class="dot dot-multi"></span>臺中市 (1家多波)</a>
           <a class="pill" href="#tainan"><span class="dot dot-single"></span>臺南市 (傳統1波/AI 2波)</a>
           <a class="pill" href="#kaohsiung"><span class="dot dot-single"></span>高雄市 (僅單波)</a>
+          <a class="pill" href="#tpoc-forecast"><span class="dot" style="background:#6b21a8;"></span>TPOC AI 預測</a>
         </nav>
         <div class="filter-controls">
           <button class="btn-filter active" data-filter="all" onclick="setFilter('all', this)">顯示全部調查</button>
@@ -1413,6 +1456,75 @@
         </table>
       </div>
     </section>
+
+    <!-- 7. TPOC 11 月六都 AI 模擬與得票率預測 -->
+    <section class="card" id="tpoc-forecast" style="border-top-color:#6b21a8;">
+      <div class="city-header">
+        <div class="city-title">
+          <h2>七、TPOC 2026 年 11 月六都「AI 民意模擬」與「最終得票率預測」</h2>
+          <span class="badge badge-ai">非傳統抽樣民調</span>
+        </div>
+        <span class="matchup">大數據與 Silicon Sampling 矽基樣本模型</span>
+      </div>
+      <p class="city-note">TPOC台灣議題研究中心結合歷屆選舉結果、年齡與性別投票率、QuickseeK 網路輿情及 Silicon Sampling 模擬推估，並非傳統電話／網路隨機抽樣民調，單獨列表呈現。</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>直轄市</th>
+              <th>11/11 第八期 AI 模擬支持度</th>
+              <th>11月中旬「最終得票率預測」</th>
+              <th>預測差距</th>
+              <th>參考來源 / 查證出處</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="ai-row">
+              <td><strong>臺北市</strong></td>
+              <td>蔣萬安 <strong>45.9%</strong> vs 沈伯洋 <strong>43.1%</strong><span class="undecided">未決定 5.1%</span></td>
+              <td>蔣萬安 <strong>52.07%</strong> vs 沈伯洋 <strong>47.93%</strong></td>
+              <td class="num"><span class="gap-kmt">蔣 +4.14%</span></td>
+              <td class="sampling-cell">TPOC台灣議題研究中心／上報、蕃新聞、Life生活網（2026/11/11、11月中旬）</td>
+            </tr>
+            <tr class="ai-row">
+              <td><strong>新北市</strong></td>
+              <td>李四川 <strong>45.8%</strong> vs 蘇巧慧 <strong>43.1%</strong><span class="undecided">未決定 7.6%</span></td>
+              <td>蘇巧慧 <strong>50.21%</strong> vs 李四川 <strong>49.79%</strong></td>
+              <td class="num"><span class="gap-dpp">蘇 +0.42%</span></td>
+              <td class="sampling-cell">TPOC台灣議題研究中心／上報、蕃新聞（2026/11/11、11月中旬）</td>
+            </tr>
+            <tr class="ai-row">
+              <td><strong>桃園市</strong></td>
+              <td>張善政 <strong>51.5%</strong> vs 黃世杰 <strong>38.3%</strong><span class="undecided">未決定 7.3%</span></td>
+              <td>張善政 <strong>58.57%</strong> vs 黃世杰 <strong>41.43%</strong></td>
+              <td class="num"><span class="gap-kmt">張 +17.14%</span></td>
+              <td class="sampling-cell">TPOC台灣議題研究中心／上報、鏡新聞、蕃新聞（2026/11/11、11月中旬）</td>
+            </tr>
+            <tr class="ai-row">
+              <td><strong>臺中市</strong></td>
+              <td>江啟臣 <strong>50.5%</strong> vs 何欣純 <strong>39.6%</strong><span class="undecided">未決定 7.2%</span></td>
+              <td>江啟臣 <strong>53.72%</strong> vs 何欣純 <strong>46.28%</strong></td>
+              <td class="num"><span class="gap-kmt">江 +7.44%</span></td>
+              <td class="sampling-cell">TPOC台灣議題研究中心／上報、蕃新聞（2026/11/11、11月中旬）</td>
+            </tr>
+            <tr class="ai-row">
+              <td><strong>臺南市</strong></td>
+              <td>陳亭妃 <strong>49.1%</strong> vs 謝龍介 <strong>39.5%</strong><span class="undecided">未決定 7.6%</span></td>
+              <td>陳亭妃 <strong>55.23%</strong> vs 謝龍介 <strong>44.77%</strong></td>
+              <td class="num"><span class="gap-dpp">陳 +10.46%</span></td>
+              <td class="sampling-cell">TPOC台灣議題研究中心／上報、鏡週刊、鏡新聞（2026/11/11、11月中旬）</td>
+            </tr>
+            <tr class="ai-row">
+              <td><strong>高雄市</strong></td>
+              <td>賴瑞隆 <strong>47.6%</strong> vs 柯志恩 <strong>42.0%</strong><span class="undecided">11月中旬報導</span></td>
+              <td>賴瑞隆 <strong>55.00%</strong> vs 柯志恩 <strong>45.00%</strong></td>
+              <td class="num"><span class="gap-dpp">賴 +10.00%</span></td>
+              <td class="sampling-cell">TPOC台灣議題研究中心／上報、LINE TODAY（2026/11月中旬）</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
     </div><!-- /#tab-tables -->
 
     <!-- 分頁 3：抽樣結構與法規說明 -->
@@ -1509,7 +1621,7 @@
             <li><strong>鋒燦傳媒（FTNN）：</strong>三立新聞、上報、風傳媒、民視新聞（臺北市 11/16、高雄市 11/2）。</li>
             <li><strong>震傳媒（委託山水民意研究執行）：</strong><a href="https://www.zmedia.com.tw/" target="_blank" rel="noopener">震傳媒</a>、三立新聞（新北市 9/23）。</li>
             <li><strong>台灣研究學會：</strong>ETtoday新聞雲、風傳媒（新北市 11/13）。</li>
-            <li><strong>TPOC台灣議題研究中心（Silicon Sampling AI 民意模擬）：</strong>鏡新聞、鏡週刊、風傳媒（臺南市 10/20、11/11 二期模擬）。</li>
+            <li><strong>TPOC台灣議題研究中心（Silicon Sampling AI 民意模擬與得票率預測）：</strong>上報、蕃新聞、鏡新聞、鏡週刊（六都 11/11 第八期 AI 模擬與 11月中旬得票率預測；臺南市 10/20、11/11 二期模擬）。</li>
           </ol>
         </div>
       </section>
