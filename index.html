@@ -376,99 +376,228 @@
       pointer-events: none;
     }
 
+    .main-tabs {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      background: rgba(246, 248, 251, 0.96);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      padding: 10px 0;
+      margin-bottom: 16px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .tab-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tab-btn {
+      cursor: pointer;
+      padding: 8px 16px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+      font-size: 13.5px;
+      font-weight: 700;
+      transition: all 0.15s ease;
+    }
+
+    .tab-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .tab-btn.active {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+      box-shadow: 0 2px 8px rgba(29, 78, 216, 0.22);
+    }
+
+    .tab-subbar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .kpi-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .kpi-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 11px;
+      border-radius: 999px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      font-size: 12.5px;
+      color: var(--text);
+    }
+
+    .charts-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    @media (max-width: 960px) {
+      .charts-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .chart-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 16px 18px;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .chart-card-head {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .chart-card-head h2 {
+      margin: 0;
+      font-size: 17px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .chart-card-foot {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      padding-top: 8px;
+      border-top: 1px solid var(--border);
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .change-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .change-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 3px 8px;
+      border-radius: 6px;
+      background: var(--surface-alt);
+      color: var(--text);
+      font-size: 12px;
+    }
+
+    .btn-jump {
+      cursor: pointer;
+      padding: 5px 11px;
+      border-radius: 7px;
+      border: 1px solid var(--accent);
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 12.5px;
+      font-weight: 700;
+      white-space: nowrap;
+      text-decoration: none;
+    }
+
+    .btn-jump:hover {
+      background: var(--accent);
+      color: #fff;
+    }
+
     @media print {
       body { background: #fff; font-size: 12px; }
-      .toolbar { display: none; }
-      section.card { box-shadow: none; break-inside: avoid; }
+      .main-tabs, .toolbar, .tab-subbar { display: none; }
+      .tab-pane.hidden { display: block !important; }
+      section.card, .chart-card { box-shadow: none; break-inside: avoid; }
       table { min-width: 0; }
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <header class="hero">
+    <header class="hero" style="padding:18px 22px;margin-bottom:10px;">
       <h1>2026 年全台六大直轄市近 3 個月市長民調整理（含同機構變化與抽樣結構）</h1>
-      <div class="meta-row">
+      <div class="meta-row" style="margin-bottom:0;">
         <span><strong>資料期間：</strong>2026/08/16 ～ 2026/11/16（11/28 投票日前 10 日民調封關前夕）</span>
-        <span><strong>適用方案：</strong>方案 A（維持近 3 個月、各直轄市獨立製表）</span>
-      </div>
-      <div class="rules-box">
-        <strong>整理與解讀原則：</strong>
-        <ul>
-          <li><strong>同機構比較原則：</strong>僅對<strong>同一家執行機構</strong>於近 3 個月內連續發布 2 波（含）以上之調查計算支持度增減與差距變化；不同機構因抽樣母體、拒訪處理及加權模型差異甚大，不跨機構換算趨勢。</li>
-          <li><strong>來源歸屬：</strong>彙整自 TVBS民意調查中心、ETtoday民調雲、信民兩岸研究協會（戴立安設計分析／畢肯市場研究執行）、世新大學民調中心、佛光大學民調中心、年代民調中心、震傳媒／山水民調、聯合報、中國時報／艾普羅、鋒燦傳媒、新台灣國策智庫（趨勢民調）、台灣研究學會及 TPOC台灣議題研究中心等公開資訊。</li>
-        </ul>
+        <span><strong>原則：</strong>僅同機構連續波次計算變化；不同機構不跨機構換算趨勢</span>
       </div>
     </header>
 
-    <div class="toolbar">
-      <nav class="nav-pills" aria-label="直轄市快速導覽">
-        <a class="pill" href="#method"><span class="dot" style="background:#1d4ed8;"></span>抽樣結構總覽</a>
-        <a class="pill" href="#taipei"><span class="dot dot-multi"></span>臺北市 (3家多波)</a>
-        <a class="pill" href="#new-taipei"><span class="dot dot-multi"></span>新北市 (2家多波)</a>
-        <a class="pill" href="#taoyuan"><span class="dot dot-single"></span>桃園市 (僅單波)</a>
-        <a class="pill" href="#taichung"><span class="dot dot-multi"></span>臺中市 (1家多波)</a>
-        <a class="pill" href="#tainan"><span class="dot dot-single"></span>臺南市 (傳統1波/AI 2波)</a>
-        <a class="pill" href="#kaohsiung"><span class="dot dot-single"></span>高雄市 (僅單波)</a>
-      </nav>
-      <div class="filter-controls">
-        <button class="btn-filter active" data-filter="all" onclick="setFilter('all', this)">顯示全部調查</button>
-        <button class="btn-filter" data-filter="multi" onclick="setFilter('multi', this)">僅看同機構多波可比</button>
+    <div class="main-tabs" role="tablist" aria-label="主要分頁切換">
+      <div class="tab-buttons">
+        <button class="tab-btn active" role="tab" aria-selected="true" data-tab="charts" onclick="switchTab('charts')">📊 第 1 頁：圖表總覽</button>
+        <button class="tab-btn" role="tab" aria-selected="false" data-tab="tables" onclick="switchTab('tables')">📋 第 2 頁：各市完整數據表</button>
+        <button class="tab-btn" role="tab" aria-selected="false" data-tab="method" onclick="switchTab('method')">📐 第 3 頁：抽樣結構與法規說明</button>
+      </div>
+      <div id="tab1-controls">
+        <label style="display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--muted);cursor:pointer;user-select:none;">
+          <input type="checkbox" id="toggle-singles" checked onchange="toggleSinglesOnCharts(this.checked)" style="accent-color:var(--accent);" />
+          圖表顯示單波機構（獨立幾何圖例，不連線）
+        </label>
       </div>
     </div>
 
-    <!-- 抽樣結構總覽 -->
-    <section class="card" id="method">
-      <div class="city-header">
-        <div class="city-title">
-          <h2>抽樣結構總覽：各類調查方法差異</h2>
+    <!-- 分頁 1：以圖為主 -->
+    <div id="tab-charts" class="tab-pane">
+      <div class="tab-subbar">
+        <div class="kpi-strip">
+          <span class="kpi-pill"><span class="dot dot-multi"></span><strong>具同機構連續變化：</strong>臺北市（3 家）、新北市（2 家）、臺中市（1 家）</span>
+          <span class="kpi-pill"><span class="dot" style="background:#7c3aed;"></span><strong>AI 模擬 2 期：</strong>臺南市 TPOC（傳統抽樣僅 1 波）</span>
+          <span class="kpi-pill"><span class="dot dot-single"></span><strong>近 3 個月僅單波：</strong>桃園市、高雄市（並列各機構單次調查）</span>
         </div>
       </div>
-      <div class="table-wrap">
-        <table>
-          <thead>
-            <tr>
-              <th>調查方法類型</th>
-              <th>代表機構</th>
-              <th>抽樣架構與接觸方式</th>
-              <th>方法學重點說明</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><span class="badge badge-dual">市話＋手機雙底冊</span></td>
-              <td>TVBS（北市封關）、信民協會／畢肯、聯合報、台灣研究學會</td>
-              <td>住宅電話抽樣＋行動電話字首／資料庫隨機跳號（CATI 人員電訪）</td>
-              <td>可觸及無市話之「唯手機族」與年輕族群；常見比例為市話約 7 成、手機約 3 成（如信民協會約 750:322），或接近 1:1（如 TVBS 北市封關 673:658）。</td>
-            </tr>
-            <tr>
-              <td><span class="badge badge-landline">純市話電話訪問</span></td>
-              <td>世新大學、佛光大學、年代民調、震傳媒／山水、中時／艾普羅、新台灣國策智庫</td>
-              <td>住宅電話簿系統抽樣＋末兩碼（或後四碼）隨機（CATI 人員電訪）</td>
-              <td>涵蓋住宅電話用戶（含未登錄號碼），惟未裝設市話之唯手機族群較難觸及，通常再依性別、年齡、地區及教育程度進行人口加權。</td>
-            </tr>
-            <tr>
-              <td><span class="badge badge-hybrid">市話＋網路混合</span></td>
-              <td>鋒燦傳媒</td>
-              <td>市話電話訪問＋網路樣本合併加權</td>
-              <td>結合電話與網路受訪者，合併後依性別、年齡及行政區結構加權（如高雄有效樣本 1,824 份）。</td>
-            </tr>
-            <tr>
-              <td><span class="badge badge-online">封閉式網路問卷</span></td>
-              <td>ETtoday民調雲</td>
-              <td>自建會員資料庫分層比例抽樣，以手機簡訊與 EDM 發送邀請</td>
-              <td>樣本規模較大（1,190～1,965 份），受訪者結構與純電訪不同，依性別、年齡、行政區及教育程度進行加權校正。</td>
-            </tr>
-            <tr>
-              <td><span class="badge badge-ai">AI 虛擬受眾模擬</span></td>
-              <td>TPOC台灣議題研究中心</td>
-              <td>Silicon Sampling 矽基樣本技術（LLM 依人口與投票參數生成虛擬受眾）</td>
-              <td>屬大數據模型模擬（如臺南生成 15,453 個虛擬代理人），<strong>非傳統機率抽樣民調</strong>，不適用傳統抽樣誤差與信賴區間。</td>
-            </tr>
-          </tbody>
-        </table>
+      <div id="charts-grid" class="charts-grid"></div>
+    </div>
+
+    <!-- 分頁 2：各市完整數據表 -->
+    <div id="tab-tables" class="tab-pane hidden">
+      <div class="toolbar" style="position:static;background:transparent;padding-top:0;">
+        <nav class="nav-pills" aria-label="直轄市快速導覽">
+          <a class="pill" href="#taipei"><span class="dot dot-multi"></span>臺北市 (3家多波)</a>
+          <a class="pill" href="#new-taipei"><span class="dot dot-multi"></span>新北市 (2家多波)</a>
+          <a class="pill" href="#taoyuan"><span class="dot dot-single"></span>桃園市 (僅單波)</a>
+          <a class="pill" href="#taichung"><span class="dot dot-multi"></span>臺中市 (1家多波)</a>
+          <a class="pill" href="#tainan"><span class="dot dot-single"></span>臺南市 (傳統1波/AI 2波)</a>
+          <a class="pill" href="#kaohsiung"><span class="dot dot-single"></span>高雄市 (僅單波)</a>
+        </nav>
+        <div class="filter-controls">
+          <button class="btn-filter active" data-filter="all" onclick="setFilter('all', this)">顯示全部調查</button>
+          <button class="btn-filter" data-filter="multi" onclick="setFilter('multi', this)">僅看同機構多波可比</button>
+        </div>
       </div>
-    </section>
 
     <!-- 1. 臺北市 -->
     <section class="card city-section" id="taipei" data-has-multi="true">
@@ -1200,14 +1329,85 @@
         </table>
       </div>
     </section>
+    </div><!-- /#tab-tables -->
 
-    <footer class="notes">
-      <h3>法規與研究限制備註</h3>
-      <ol>
-        <li>依中華民國《公職人員選舉罷免法》第 53 條規定，2026 年 11 月 28 日投票日前 10 日起至投票時間截止前，依法不得發布、報導、散布、評論或引述任何有關候選人或選舉之民意調查資料。</li>
-        <li>上述資料僅收錄近 3 個月（2026/08/16–11/16）對外公開揭露且可查證之調查結果；未列入多波比較的機構可能曾執行內部追蹤但未公開。</li>
-      </ol>
-    </footer>
+    <!-- 分頁 3：抽樣結構與法規說明 -->
+    <div id="tab-method" class="tab-pane hidden">
+      <section class="card" id="method">
+        <div class="city-header">
+          <div class="city-title">
+            <h2>抽樣結構總覽：各類調查方法差異</h2>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>調查方法類型</th>
+                <th>代表機構</th>
+                <th>抽樣架構與接觸方式</th>
+                <th>方法學重點說明</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="badge badge-dual">市話＋手機雙底冊</span></td>
+                <td>TVBS（北市封關）、信民協會／畢肯、聯合報、台灣研究學會</td>
+                <td>住宅電話抽樣＋行動電話字首／資料庫隨機跳號（CATI 人員電訪）</td>
+                <td>可觸及無市話之「唯手機族」與年輕族群；常見比例為市話約 7 成、手機約 3 成（如信民協會約 750:322），或接近 1:1（如 TVBS 北市封關 673:658）。</td>
+              </tr>
+              <tr>
+                <td><span class="badge badge-landline">純市話電話訪問</span></td>
+                <td>世新大學、佛光大學、年代民調、震傳媒／山水、中時／艾普羅、新台灣國策智庫</td>
+                <td>住宅電話簿系統抽樣＋末兩碼（或後四碼）隨機（CATI 人員電訪）</td>
+                <td>涵蓋住宅電話用戶（含未登錄號碼），惟未裝設市話之唯手機族群較難觸及，通常再依性別、年齡、地區及教育程度進行人口加權。</td>
+              </tr>
+              <tr>
+                <td><span class="badge badge-hybrid">市話＋網路混合</span></td>
+                <td>鋒燦傳媒</td>
+                <td>市話電話訪問＋網路樣本合併加權</td>
+                <td>結合電話與網路受訪者，合併後依性別、年齡及行政區結構加權（如高雄有效樣本 1,824 份）。</td>
+              </tr>
+              <tr>
+                <td><span class="badge badge-online">封閉式網路問卷</span></td>
+                <td>ETtoday民調雲</td>
+                <td>自建會員資料庫分層比例抽樣，以手機簡訊與 EDM 發送邀請</td>
+                <td>樣本規模較大（1,190～1,965 份），受訪者結構與純電訪不同，依性別、年齡、行政區及教育程度進行加權校正。</td>
+              </tr>
+              <tr>
+                <td><span class="badge badge-ai">AI 虛擬受眾模擬</span></td>
+                <td>TPOC台灣議題研究中心</td>
+                <td>Silicon Sampling 矽基樣本技術（LLM 依人口與投票參數生成虛擬受眾）</td>
+                <td>屬大數據模型模擬（如臺南生成 15,453 個虛擬代理人），<strong>非傳統機率抽樣民調</strong>，不適用傳統抽樣誤差與信賴區間。</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="city-header">
+          <div class="city-title">
+            <h2>整理與圖例判讀原則</h2>
+          </div>
+        </div>
+        <div class="rules-box" style="margin-bottom:0;">
+          <ul style="margin-top:0;">
+            <li><strong>同機構比較原則：</strong>僅對<strong>同一家執行機構</strong>於近 3 個月內連續發布 2 波（含）以上之調查計算支持度增減與差距變化；圖表中以<strong>實心圓點＋實線</strong>串連同一機構前後波次。</li>
+            <li><strong>單波機構獨立圖例：</strong>近 3 個月內僅有 1 次公開調查的機構，以各自獨立的<strong>幾何空心圖形（◇ △ □ ▽ ⬡）與不同顏色</strong>標示且<strong>絕不跨機構連線</strong>，避免誤判為時間趨勢。</li>
+            <li><strong>資料來源歸屬：</strong>彙整自 TVBS民意調查中心、ETtoday民調雲、信民兩岸研究協會（戴立安設計分析／畢肯市場研究執行）、世新大學民調中心、佛光大學民調中心、年代民調中心、震傳媒／山水民調、聯合報、中國時報／艾普羅、鋒燦傳媒、新台灣國策智庫（趨勢民調）、台灣研究學會及 TPOC台灣議題研究中心等公開資訊。</li>
+          </ul>
+        </div>
+      </section>
+
+      <footer class="notes">
+        <h3>法規與研究限制備註</h3>
+        <ol>
+          <li>依中華民國《公職人員選舉罷免法》第 53 條規定，2026 年 11 月 28 日投票日前 10 日起至投票時間截止前，依法不得發布、報導、散布、評論或引述任何有關候選人或選舉之民意調查資料。</li>
+          <li>上述資料僅收錄近 3 個月（2026/08/16–11/16）對外公開揭露且可查證之調查結果；未列入多波比較的機構可能曾執行內部追蹤但未公開。</li>
+        </ol>
+      </footer>
+    </div><!-- /#tab-method -->
   </div>
 
   <div id="chart-tooltip" class="chart-tooltip hidden"></div>
@@ -1215,9 +1415,17 @@
   <script>
     const CHART_DATA = {
       taipei: {
+        title: '1. 臺北市',
+        badgeText: '3 家機構同機構多波',
+        badgeClass: 'badge-multi',
         kmtName: '蔣萬安',
         dppName: '沈伯洋',
         hasMulti: true,
+        summaryPills: [
+          { color: '#2563eb', text: 'TVBS：蔣 49→46% (-3%) / 沈 41→44% (+3%)' },
+          { color: '#0d9488', text: 'ETtoday：蔣 48.6→48.1% (-0.5%) / 沈 41.1→42.0% (+0.9%)' },
+          { color: '#d97706', text: '信民：蔣 41.7→33.8% (-7.9%) / 沈 40.5→48.6% (+8.1%)' }
+        ],
         orgs: [
           {
             name: 'TVBS',
@@ -1254,9 +1462,16 @@
         ]
       },
       'new-taipei': {
+        title: '2. 新北市',
+        badgeText: '2 家機構同機構多波',
+        badgeClass: 'badge-multi',
         kmtName: '李四川',
         dppName: '蘇巧慧',
         hasMulti: true,
+        summaryPills: [
+          { color: '#2563eb', text: 'TVBS：李 39.8→42.6% (+2.8%) / 蘇 33.1→35.9% (+2.8%)' },
+          { color: '#d97706', text: '信民：李 34.7→30.0% (-4.7%) / 蘇 35.2→43.1% (+7.9%)' }
+        ],
         orgs: [
           {
             name: 'TVBS(藍營委託)',
@@ -1284,9 +1499,13 @@
         ]
       },
       taoyuan: {
+        title: '3. 桃園市',
+        badgeText: '近 3 個月僅單波公開',
+        badgeClass: 'badge-single',
         kmtName: '張善政',
         dppName: '黃世杰',
         hasMulti: false,
+        summaryPills: [],
         orgs: [],
         singles: [
           { name: '新台灣國策智庫', date: '9/15–17', kmt: 47.0, dpp: 25.9, sample: '純市話 n=1,082 ±2.98%' },
@@ -1296,9 +1515,15 @@
         ]
       },
       taichung: {
+        title: '4. 臺中市',
+        badgeText: '1 家機構同機構多波',
+        badgeClass: 'badge-multi',
         kmtName: '江啟臣',
         dppName: '何欣純',
         hasMulti: true,
+        summaryPills: [
+          { color: '#2563eb', text: '世新大學：江 39.8→39.2% (-0.6%) / 何 28.7→30.0% (+1.3%)' }
+        ],
         orgs: [
           {
             name: '世新大學(藍營委託)',
@@ -1317,9 +1542,15 @@
         ]
       },
       tainan: {
+        title: '5. 臺南市',
+        badgeText: '傳統 1 波 / AI 模擬 2 期',
+        badgeClass: 'badge-ai',
         kmtName: '謝龍介',
         dppName: '陳亭妃',
         hasMulti: true,
+        summaryPills: [
+          { color: '#7c3aed', text: 'TPOC AI模擬(非抽樣)：陳 45.9→49.1% (+3.2%) / 謝 33.8→39.5% (+5.7%)' }
+        ],
         orgs: [
           {
             name: 'TPOC AI模擬(非抽樣)',
@@ -1335,9 +1566,13 @@
         ]
       },
       kaohsiung: {
+        title: '6. 高雄市',
+        badgeText: '近 3 個月僅單波公開',
+        badgeClass: 'badge-single',
         kmtName: '柯志恩',
         dppName: '賴瑞隆',
         hasMulti: false,
+        summaryPills: [],
         orgs: [],
         singles: [
           { name: '鋒燦傳媒', date: '10/16–21', kmt: 27.4, dpp: 47.8, sample: '市話+網路 n=1,824 (1014/810) ±2.30%' },
@@ -1348,7 +1583,7 @@
       }
     };
 
-    let currentFilterMode = 'all';
+    let showSinglesOnCharts = true;
     const tipEl = document.getElementById('chart-tooltip');
 
     function showTip(evt, html) {
@@ -1406,16 +1641,16 @@
     }
 
     function buildTrendChart(cityId, d) {
-      const includeSingles = currentFilterMode === 'all';
+      const includeSingles = showSinglesOnCharts;
       const diffs = d.orgs.flatMap((o) => o.points.map((p) => p.kmt - p.dpp));
       if (includeSingles) d.singles.forEach((s) => diffs.push(s.kmt - s.dpp));
       const rawMax = Math.max(10, ...diffs.map((v) => Math.abs(v)));
       const yMax = Math.ceil((rawMax + 4) / 5) * 5;
       const yMin = -yMax;
 
-      const W = 820;
-      const H = 210;
-      const pad = { top: 20, right: 28, bottom: 28, left: 50 };
+      const W = 620;
+      const H = 220;
+      const pad = { top: 20, right: 24, bottom: 28, left: 46 };
       const cw = W - pad.left - pad.right;
       const ch = H - pad.top - pad.bottom;
       const xPos = (pct) => pad.left + (pct / 100) * cw;
@@ -1426,7 +1661,7 @@
         const y = yPos(t);
         const z = t === 0;
         svg += `<line x1="${pad.left}" y1="${y}" x2="${W - pad.right}" y2="${y}" stroke="${z ? '#334155' : '#dbe3ee'}" stroke-width="${z ? 1.3 : 0.9}" ${z ? 'stroke-dasharray="4 3"' : ''} />`;
-        svg += `<text x="${pad.left - 8}" y="${y + 4}" text-anchor="end" fill="#64748b" font-size="11">${t > 0 ? '+' + t : t}%</text>`;
+        svg += `<text x="${pad.left - 7}" y="${y + 4}" text-anchor="end" fill="#64748b" font-size="11">${t > 0 ? '+' + t : t}%</text>`;
       });
 
       svg += `<text x="${pad.left + 6}" y="${pad.top + 11}" fill="#1d4ed8" font-size="11" font-weight="700">▲ ${d.kmtName}領先</text>`;
@@ -1437,7 +1672,7 @@
         { label: '9月中旬', x: 26 },
         { label: '10月上旬', x: 46 },
         { label: '10月下旬', x: 66 },
-        { label: '11月中旬(封關)', x: 90 }
+        { label: '11月中旬(封關)', x: 89 }
       ].forEach((m) => {
         svg += `<text x="${xPos(m.x)}" y="${H - 6}" text-anchor="middle" fill="#64748b" font-size="11">${m.label}</text>`;
       });
@@ -1491,13 +1726,13 @@
           : '';
       const legend = multiLegend + singleLegend;
 
-      return `<div class="chart-panel-head"><span><strong>視覺化走勢：</strong>領先差距（藍減綠 %，同機構連線）</span><div class="chart-legend">${legend}</div></div>${svg}`;
+      return `<div class="chart-panel" style="margin-bottom:0;"><div class="chart-panel-head"><span>領先差距（藍減綠 %，同機構連線）</span><div class="chart-legend">${legend}</div></div>${svg}</div>`;
     }
 
     function buildBarChart(cityId, d) {
-      const W = 820;
+      const W = 620;
       const rowH = 44;
-      const pad = { top: 10, right: 50, bottom: 20, left: 185 };
+      const pad = { top: 10, right: 46, bottom: 20, left: 165 };
       const H = pad.top + pad.bottom + d.singles.length * rowH;
       const cw = W - pad.left - pad.right;
       const xPos = (v) => pad.left + (v / 60) * cw;
@@ -1512,7 +1747,7 @@
       d.singles.forEach((s, si) => {
         const y0 = pad.top + si * rowH;
         const st = getSingleStyle(si);
-        svg += drawSingleMarkerSVG(st.shape, 12, y0 + 13, st.color, 5);
+        svg += drawSingleMarkerSVG(st.shape, 10, y0 + 13, st.color, 5);
         svg += `<text x="${pad.left - 8}" y="${y0 + 16}" text-anchor="end" fill="#0f172a" font-size="12" font-weight="700">${s.name}</text>`;
         svg += `<text x="${pad.left - 8}" y="${y0 + 30}" text-anchor="end" fill="#64748b" font-size="11">${s.date}</text>`;
 
@@ -1535,24 +1770,44 @@
         })
         .join('');
       const legend = candLegend + orgLegend;
-      return `<div class="chart-panel-head"><span><strong>單波並列視覺化：</strong>無同機構第 2 波，僅列各機構支持度對比</span><div class="chart-legend">${legend}</div></div>${svg}`;
+      return `<div class="chart-panel" style="margin-bottom:0;"><div class="chart-panel-head"><span>單波並列對比（無同機構第 2 波）</span><div class="chart-legend">${legend}</div></div>${svg}</div>`;
     }
 
-    function renderAllCharts() {
-      Object.entries(CHART_DATA).forEach(([cityId, d]) => {
-        const sec = document.getElementById(cityId);
-        if (!sec) return;
-        let panel = sec.querySelector('.chart-panel');
-        if (!panel) {
-          panel = document.createElement('div');
-          panel.className = 'chart-panel';
-          const tableWrap = sec.querySelector('.table-wrap');
-          sec.insertBefore(panel, tableWrap);
-        }
-        panel.innerHTML = d.hasMulti ? buildTrendChart(cityId, d) : buildBarChart(cityId, d);
-      });
+    function renderChartsGrid() {
+      const grid = document.getElementById('charts-grid');
+      if (!grid) return;
 
-      document.querySelectorAll('.svg-pt').forEach((el) => {
+      grid.innerHTML = Object.entries(CHART_DATA)
+        .map(([cityId, d]) => {
+          const chartHTML = d.hasMulti ? buildTrendChart(cityId, d) : buildBarChart(cityId, d);
+          const pillsHTML = d.summaryPills.length
+            ? d.summaryPills
+                .map(
+                  (p) =>
+                    `<span class="change-pill"><span style="width:8px;height:8px;border-radius:50%;background:${p.color};display:inline-block;"></span>${p.text}</span>`
+                )
+                .join('')
+            : '<span style="color:var(--muted);">近 3 個月查無同機構第 2 波；請點擊右側查看各機構完整抽樣明細。</span>';
+
+          return `
+            <article class="chart-card">
+              <div class="chart-card-head">
+                <div>
+                  <h2>${d.title} <span class="badge ${d.badgeClass}">${d.badgeText}</span></h2>
+                </div>
+                <span class="matchup">${d.kmtName}（藍） vs ${d.dppName}（綠）</span>
+              </div>
+              ${chartHTML}
+              <div class="chart-card-foot">
+                <div class="change-pills">${pillsHTML}</div>
+                <button class="btn-jump" onclick="goToCityTable('${cityId}')">查看詳細表格 →</button>
+              </div>
+            </article>
+          `;
+        })
+        .join('');
+
+      grid.querySelectorAll('.svg-pt').forEach((el) => {
         el.addEventListener('mousemove', (e) => {
           const cid = el.getAttribute('data-city');
           const d = CHART_DATA[cid];
@@ -1586,8 +1841,50 @@
       });
     }
 
+    function switchTab(tabId, updateHash = true) {
+      document.querySelectorAll('.tab-btn').forEach((btn) => {
+        const isActive = btn.getAttribute('data-tab') === tabId;
+        btn.classList.toggle('active', isActive);
+        btn.setAttribute('aria-selected', isActive ? 'true' : 'false');
+      });
+
+      document.querySelectorAll('.tab-pane').forEach((pane) => {
+        pane.classList.toggle('hidden', pane.id !== `tab-${tabId}`);
+      });
+
+      const tab1Ctrl = document.getElementById('tab1-controls');
+      if (tab1Ctrl) {
+        tab1Ctrl.classList.toggle('hidden', tabId !== 'charts');
+      }
+
+      if (updateHash) {
+        history.replaceState(null, '', '#' + tabId);
+      }
+      hideTip();
+    }
+
+    function goToCityTable(cityId) {
+      // Ensure all rows are visible if user jumps to a single-wave-only city
+      const targetSec = document.getElementById(cityId);
+      if (targetSec && targetSec.classList.contains('hidden')) {
+        const allBtn = document.querySelector('.btn-filter[data-filter="all"]');
+        if (allBtn) setFilter('all', allBtn);
+      }
+      switchTab('tables', false);
+      history.replaceState(null, '', '#' + cityId);
+      if (targetSec) {
+        setTimeout(() => {
+          targetSec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 40);
+      }
+    }
+
+    function toggleSinglesOnCharts(checked) {
+      showSinglesOnCharts = checked;
+      renderChartsGrid();
+    }
+
     function setFilter(mode, btn) {
-      currentFilterMode = mode;
       document.querySelectorAll('.btn-filter').forEach((b) => b.classList.remove('active'));
       btn.classList.add('active');
 
@@ -1607,11 +1904,24 @@
           singles.forEach((row) => row.classList.remove('hidden'));
         }
       });
-
-      renderAllCharts();
     }
 
-    renderAllCharts();
+    function initFromHash() {
+      const h = (window.location.hash || '').replace('#', '');
+      if (h === 'tables') {
+        switchTab('tables', false);
+      } else if (h === 'method') {
+        switchTab('method', false);
+      } else if (CHART_DATA[h]) {
+        goToCityTable(h);
+      } else {
+        switchTab('charts', false);
+      }
+    }
+
+    window.addEventListener('hashchange', initFromHash);
+    renderChartsGrid();
+    initFromHash();
   </script>
 </body>
 </html>
