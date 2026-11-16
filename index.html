@@ -10,25 +10,27 @@
   <meta property="og:description" content="比較臺北市、新北市、桃園市、臺中市、臺南市、高雄市近3個月市長民調同機構變化與抽樣結構。" />
   <style>
     :root {
-      --bg: #f6f8fb;
+      --bg: #faf9f6;
       --surface: #ffffff;
-      --surface-alt: #f1f5f9;
-      --border: #dde4ee;
-      --text: #172133;
-      --muted: #556278;
-      --accent: #1d4ed8;
-      --accent-soft: #eff6ff;
+      --surface-alt: #f4f2ec;
+      --border: #e2dfd7;
+      --ink: #121212;
+      --text: #1c1c1a;
+      --muted: #5c5b57;
+      --accent: #121212;
+      --accent-soft: #f4f2ec;
       --kmt: #1d4ed8;
-      --kmt-bg: #dbeafe;
+      --kmt-bg: #eef2ff;
       --dpp: #15803d;
-      --dpp-bg: #dcfce7;
-      --warn-bg: #fef3c7;
-      --warn-text: #92400e;
-      --ai-bg: #f3e8ff;
+      --dpp-bg: #eefaf1;
+      --warn-bg: #fef7e6;
+      --warn-text: #854d0e;
+      --ai-bg: #f5f0ff;
       --ai-text: #6b21a8;
-      --teal-bg: #ccfbf1;
+      --teal-bg: #eefaf8;
       --teal-text: #115e59;
-      --shadow: 0 2px 10px rgba(15, 23, 42, 0.05);
+      --serif: "Noto Serif TC", "Source Han Serif TC", "PMingLiU", Georgia, serif;
+      --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Microsoft JhengHei", "Noto Sans TC", sans-serif;
     }
 
     * {
@@ -37,50 +39,65 @@
 
     body {
       margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft JhengHei", "PingFang TC", "Noto Sans TC", sans-serif;
+      font-family: var(--sans);
       background: var(--bg);
       color: var(--text);
-      line-height: 1.6;
+      line-height: 1.65;
       font-size: 14px;
+      -webkit-font-smoothing: antialiased;
     }
 
     .container {
-      max-width: 1280px;
+      max-width: 1240px;
       margin: 0 auto;
-      padding: 24px 18px 56px;
+      padding: 28px 20px 64px;
     }
 
     header.hero {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 24px 26px;
-      box-shadow: var(--shadow);
-      margin-bottom: 18px;
+      background: transparent;
+      border: none;
+      border-top: 3px solid var(--ink);
+      border-bottom: 1px solid var(--ink);
+      border-radius: 0;
+      padding: 18px 0 16px;
+      margin-bottom: 0;
+    }
+
+    .kicker {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: #991b1b;
+      margin-bottom: 6px;
+      text-transform: uppercase;
     }
 
     header.hero h1 {
-      margin: 0 0 8px;
-      font-size: 22px;
-      line-height: 1.35;
+      margin: 0 0 10px;
+      font-family: var(--serif);
+      font-size: 27px;
+      font-weight: 700;
+      line-height: 1.3;
+      color: var(--ink);
+      letter-spacing: -0.01em;
     }
 
     .meta-row {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px 18px;
+      gap: 6px 20px;
       color: var(--muted);
       font-size: 13px;
-      margin-bottom: 14px;
+      margin-bottom: 0;
     }
 
     .rules-box {
       background: var(--surface-alt);
-      border-left: 4px solid var(--accent);
-      border-radius: 6px;
-      padding: 12px 14px;
-      font-size: 13px;
-      color: #273449;
+      border-left: 3px solid var(--ink);
+      border-radius: 0;
+      padding: 12px 16px;
+      font-size: 13.5px;
+      color: var(--text);
     }
 
     .rules-box ul {
@@ -92,10 +109,10 @@
       position: sticky;
       top: 0;
       z-index: 20;
-      background: rgba(246, 248, 251, 0.94);
-      backdrop-filter: blur(8px);
+      background: rgba(250, 249, 246, 0.96);
+      backdrop-filter: blur(6px);
       padding: 10px 0 12px;
-      margin-bottom: 14px;
+      margin-bottom: 16px;
       display: flex;
       flex-wrap: wrap;
       align-items: center;
@@ -107,79 +124,79 @@
     .nav-pills {
       display: flex;
       flex-wrap: wrap;
-      gap: 8px;
+      gap: 6px;
     }
 
     .pill {
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      padding: 6px 12px;
-      border-radius: 999px;
+      padding: 5px 11px;
+      border-radius: 2px;
       background: var(--surface);
       border: 1px solid var(--border);
       color: var(--text);
       text-decoration: none;
-      font-size: 13px;
+      font-size: 12.5px;
       font-weight: 600;
-      transition: all 0.15s ease;
+      transition: border-color 0.15s ease, color 0.15s ease;
     }
 
     .pill:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-      background: var(--accent-soft);
+      border-color: var(--ink);
+      color: var(--ink);
+      background: var(--surface-alt);
     }
 
     .pill .dot {
-      width: 8px;
-      height: 8px;
+      width: 7px;
+      height: 7px;
       border-radius: 50%;
       display: inline-block;
     }
 
-    .dot-multi { background: #16a34a; }
-    .dot-single { background: #d97706; }
+    .dot-multi { background: #15803d; }
+    .dot-single { background: #b45309; }
 
     .filter-controls {
       display: flex;
-      gap: 8px;
+      gap: 6px;
       flex-wrap: wrap;
     }
 
     .btn-filter {
       cursor: pointer;
-      padding: 6px 12px;
-      border-radius: 8px;
+      padding: 5px 12px;
+      border-radius: 2px;
       border: 1px solid var(--border);
       background: var(--surface);
-      color: var(--text);
-      font-size: 13px;
+      color: var(--muted);
+      font-size: 12.5px;
       font-weight: 600;
     }
 
     .btn-filter.active {
-      background: var(--accent);
-      border-color: var(--accent);
+      background: var(--ink);
+      border-color: var(--ink);
       color: #fff;
     }
 
     section.card {
       background: var(--surface);
       border: 1px solid var(--border);
-      border-radius: 14px;
+      border-top: 2px solid var(--ink);
+      border-radius: 2px;
       padding: 20px 22px;
       margin-bottom: 22px;
-      box-shadow: var(--shadow);
     }
 
     .city-header {
       display: flex;
       flex-wrap: wrap;
-      align-items: center;
+      align-items: baseline;
       justify-content: space-between;
       gap: 10px;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
       padding-bottom: 10px;
       border-bottom: 1px solid var(--border);
     }
@@ -193,7 +210,9 @@
 
     .city-title h2 {
       margin: 0;
-      font-size: 19px;
+      font-family: var(--serif);
+      font-size: 20px;
+      color: var(--ink);
     }
 
     .matchup {
@@ -204,19 +223,20 @@
 
     .badge {
       display: inline-block;
-      padding: 2px 9px;
-      border-radius: 999px;
-      font-size: 12px;
+      padding: 2px 8px;
+      border-radius: 2px;
+      font-size: 11.5px;
       font-weight: 700;
       white-space: nowrap;
+      letter-spacing: 0.02em;
     }
 
-    .badge-multi { background: #dcfce7; color: #166534; }
-    .badge-single { background: var(--warn-bg); color: var(--warn-text); }
-    .badge-dual { background: #dbeafe; color: #1e40af; }
-    .badge-landline { background: #e2e8f0; color: #334155; }
+    .badge-multi { background: var(--dpp-bg); color: #166534; border: 1px solid #bbf7d0; }
+    .badge-single { background: var(--warn-bg); color: var(--warn-text); border: 1px solid #fde68a; }
+    .badge-dual { background: var(--kmt-bg); color: #1e40af; }
+    .badge-landline { background: #efede8; color: #3f3e3a; }
     .badge-online { background: var(--teal-bg); color: var(--teal-text); }
-    .badge-hybrid { background: #fef3c7; color: #92400e; }
+    .badge-hybrid { background: var(--warn-bg); color: var(--warn-text); }
     .badge-ai { background: var(--ai-bg); color: var(--ai-text); }
 
     .city-note {
@@ -236,17 +256,22 @@
     }
 
     th, td {
-      border: 1px solid var(--border);
-      padding: 10px 11px;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      border-left: none;
+      border-right: none;
+      padding: 10px 10px;
       vertical-align: top;
       text-align: left;
     }
 
     th {
       background: var(--surface-alt);
+      border-top: 1px solid var(--ink);
+      border-bottom: 1px solid var(--ink);
       font-weight: 700;
-      font-size: 13px;
-      color: #243047;
+      font-size: 12.5px;
+      color: var(--ink);
       white-space: nowrap;
     }
 
@@ -258,20 +283,20 @@
     }
 
     tr.group-alt td {
-      background: #fafcff;
+      background: #fcfbf8;
     }
 
     tr.single-wave td {
-      background: #fffdf7;
+      background: #fffefb;
     }
 
     tr.ai-row td {
-      background: #fdfaff;
+      background: #fbf9ff;
     }
 
     .org-name {
       font-weight: 700;
-      color: var(--text);
+      color: var(--ink);
     }
 
     .org-sub {
@@ -282,8 +307,8 @@
     }
 
     .change-cell {
-      background: #f8fafc !important;
-      font-size: 13px;
+      background: #faf9f5 !important;
+      font-size: 12.5px;
       line-height: 1.55;
       min-width: 210px;
     }
@@ -310,19 +335,19 @@
     }
 
     footer.notes {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 18px 22px;
+      background: transparent;
+      border: none;
+      border-top: 1px solid var(--ink);
+      padding: 16px 0;
       font-size: 13px;
       color: var(--muted);
-      box-shadow: var(--shadow);
     }
 
     footer.notes h3 {
       margin-top: 0;
-      font-size: 15px;
-      color: var(--text);
+      font-family: var(--serif);
+      font-size: 16px;
+      color: var(--ink);
     }
 
     .hidden {
@@ -330,11 +355,11 @@
     }
 
     .chart-panel {
-      background: #f8fafd;
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 12px 14px;
-      margin-bottom: 14px;
+      background: var(--surface);
+      border: 1px solid #eceae2;
+      border-radius: 2px;
+      padding: 12px 12px 8px;
+      margin-bottom: 12px;
     }
 
     .chart-panel-head {
@@ -344,14 +369,14 @@
       justify-content: space-between;
       gap: 8px;
       margin-bottom: 8px;
-      font-size: 12.5px;
+      font-size: 12px;
       color: var(--muted);
     }
 
     .chart-legend {
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
+      gap: 10px;
       align-items: center;
     }
 
@@ -368,11 +393,11 @@
       z-index: 99;
       max-width: 270px;
       background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 8px;
+      border: 1px solid var(--ink);
+      border-radius: 2px;
       padding: 8px 10px;
       font-size: 12px;
-      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.12);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
       pointer-events: none;
     }
 
@@ -380,11 +405,11 @@
       position: sticky;
       top: 0;
       z-index: 30;
-      background: rgba(246, 248, 251, 0.96);
-      backdrop-filter: blur(8px);
+      background: rgba(250, 249, 246, 0.96);
+      backdrop-filter: blur(6px);
       border-bottom: 1px solid var(--border);
-      padding: 10px 0;
-      margin-bottom: 16px;
+      padding: 0;
+      margin-bottom: 18px;
       display: flex;
       flex-wrap: wrap;
       align-items: center;
@@ -395,31 +420,29 @@
     .tab-buttons {
       display: flex;
       flex-wrap: wrap;
-      gap: 8px;
+      gap: 4px;
     }
 
     .tab-btn {
       cursor: pointer;
-      padding: 8px 16px;
-      border-radius: 10px;
-      border: 1px solid var(--border);
-      background: var(--surface);
-      color: var(--text);
+      padding: 12px 16px;
+      border: none;
+      border-bottom: 2px solid transparent;
+      border-radius: 0;
+      background: transparent;
+      color: var(--muted);
       font-size: 13.5px;
       font-weight: 700;
-      transition: all 0.15s ease;
+      transition: color 0.15s ease, border-color 0.15s ease;
     }
 
     .tab-btn:hover {
-      border-color: var(--accent);
-      color: var(--accent);
+      color: var(--ink);
     }
 
     .tab-btn.active {
-      background: var(--accent);
-      border-color: var(--accent);
-      color: #fff;
-      box-shadow: 0 2px 8px rgba(29, 78, 216, 0.22);
+      color: var(--ink);
+      border-bottom-color: var(--ink);
     }
 
     .tab-subbar {
@@ -428,45 +451,53 @@
       align-items: center;
       justify-content: space-between;
       gap: 10px;
-      margin-bottom: 14px;
+      margin-bottom: 16px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
     }
 
     .kpi-strip {
       display: flex;
       flex-wrap: wrap;
-      gap: 8px;
+      gap: 8px 18px;
     }
 
     .kpi-pill {
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      padding: 5px 11px;
-      border-radius: 999px;
-      background: var(--surface);
-      border: 1px solid var(--border);
+      padding: 2px 0;
+      background: transparent;
+      border: none;
       font-size: 12.5px;
-      color: var(--text);
+      color: var(--muted);
+    }
+
+    .kpi-pill strong {
+      color: var(--ink);
     }
 
     .charts-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 18px;
+      gap: 20px;
     }
 
     @media (max-width: 960px) {
       .charts-grid {
         grid-template-columns: 1fr;
       }
+      header.hero h1 {
+        font-size: 22px;
+      }
     }
 
     .chart-card {
       background: var(--surface);
       border: 1px solid var(--border);
-      border-radius: 14px;
+      border-top: 2px solid var(--ink);
+      border-radius: 2px;
       padding: 16px 18px;
-      box-shadow: var(--shadow);
       display: flex;
       flex-direction: column;
       gap: 10px;
@@ -475,7 +506,7 @@
     .chart-card-head {
       display: flex;
       flex-wrap: wrap;
-      align-items: center;
+      align-items: baseline;
       justify-content: space-between;
       gap: 8px;
       padding-bottom: 8px;
@@ -484,7 +515,9 @@
 
     .chart-card-head h2 {
       margin: 0;
-      font-size: 17px;
+      font-family: var(--serif);
+      font-size: 18px;
+      color: var(--ink);
       display: inline-flex;
       align-items: center;
       gap: 8px;
@@ -513,7 +546,7 @@
       align-items: center;
       gap: 5px;
       padding: 3px 8px;
-      border-radius: 6px;
+      border-radius: 2px;
       background: var(--surface-alt);
       color: var(--text);
       font-size: 12px;
@@ -521,19 +554,20 @@
 
     .btn-jump {
       cursor: pointer;
-      padding: 5px 11px;
-      border-radius: 7px;
-      border: 1px solid var(--accent);
-      background: var(--accent-soft);
-      color: var(--accent);
-      font-size: 12.5px;
+      padding: 5px 10px;
+      border-radius: 2px;
+      border: 1px solid var(--ink);
+      background: transparent;
+      color: var(--ink);
+      font-size: 12px;
       font-weight: 700;
       white-space: nowrap;
       text-decoration: none;
+      transition: background 0.15s ease, color 0.15s ease;
     }
 
     .btn-jump:hover {
-      background: var(--accent);
+      background: var(--ink);
       color: #fff;
     }
 
@@ -541,30 +575,31 @@
       body { background: #fff; font-size: 12px; }
       .main-tabs, .toolbar, .tab-subbar { display: none; }
       .tab-pane.hidden { display: block !important; }
-      section.card, .chart-card { box-shadow: none; break-inside: avoid; }
+      section.card, .chart-card { break-inside: avoid; }
       table { min-width: 0; }
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <header class="hero" style="padding:18px 22px;margin-bottom:10px;">
-      <h1>2026 年全台六大直轄市近 3 個月市長民調整理（含同機構變化與抽樣結構）</h1>
-      <div class="meta-row" style="margin-bottom:0;">
-        <span><strong>資料期間：</strong>2026/08/16 ～ 2026/11/16（11/28 投票日前 10 日民調封關前夕）</span>
-        <span><strong>原則：</strong>僅同機構連續波次計算變化；不同機構不跨機構換算趨勢</span>
+    <header class="hero">
+      <div class="kicker">2026 九合一選舉・六大直轄市民調追蹤專題</div>
+      <h1>全台直轄市近三個月市長民調變化與抽樣結構</h1>
+      <div class="meta-row">
+        <span><strong>統計區間：</strong>2026.08.16 – 2026.11.16（選前 10 日封關前夕）</span>
+        <span><strong>方法原則：</strong>僅計算同一調查機構之連續波次變化，不跨機構換算趨勢</span>
       </div>
     </header>
 
     <div class="main-tabs" role="tablist" aria-label="主要分頁切換">
       <div class="tab-buttons">
-        <button class="tab-btn active" role="tab" aria-selected="true" data-tab="charts" onclick="switchTab('charts')">📊 第 1 頁：圖表總覽</button>
-        <button class="tab-btn" role="tab" aria-selected="false" data-tab="tables" onclick="switchTab('tables')">📋 第 2 頁：各市完整數據表</button>
-        <button class="tab-btn" role="tab" aria-selected="false" data-tab="method" onclick="switchTab('method')">📐 第 3 頁：抽樣結構與參考來源</button>
+        <button class="tab-btn active" role="tab" aria-selected="true" data-tab="charts" onclick="switchTab('charts')">第 1 頁：圖表總覽</button>
+        <button class="tab-btn" role="tab" aria-selected="false" data-tab="tables" onclick="switchTab('tables')">第 2 頁：各市完整數據表</button>
+        <button class="tab-btn" role="tab" aria-selected="false" data-tab="method" onclick="switchTab('method')">第 3 頁：抽樣結構與參考來源</button>
       </div>
       <div id="tab1-controls">
-        <label style="display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--muted);cursor:pointer;user-select:none;">
-          <input type="checkbox" id="toggle-singles" checked onchange="toggleSinglesOnCharts(this.checked)" style="accent-color:var(--accent);" />
+        <label style="display:inline-flex;align-items:center;gap:6px;font-size:12.5px;color:var(--muted);cursor:pointer;user-select:none;padding:8px 0;">
+          <input type="checkbox" id="toggle-singles" checked onchange="toggleSinglesOnCharts(this.checked)" style="accent-color:#121212;" />
           圖表顯示單波機構（獨立幾何圖例，不連線）
         </label>
       </div>
