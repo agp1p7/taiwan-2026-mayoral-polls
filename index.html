@@ -1,0 +1,1617 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2026 年全台六大直轄市近 3 個月市長民調整理（含同機構變化與抽樣結構）</title>
+  <meta name="description" content="2026年8月16日至11月16日全台六大直轄市市長民調整理，包含同機構連續波次變化圖表、單波機構對比與抽樣結構說明。" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="2026 年全台六大直轄市近 3 個月市長民調整理" />
+  <meta property="og:description" content="比較臺北市、新北市、桃園市、臺中市、臺南市、高雄市近3個月市長民調同機構變化與抽樣結構。" />
+  <style>
+    :root {
+      --bg: #f6f8fb;
+      --surface: #ffffff;
+      --surface-alt: #f1f5f9;
+      --border: #dde4ee;
+      --text: #172133;
+      --muted: #556278;
+      --accent: #1d4ed8;
+      --accent-soft: #eff6ff;
+      --kmt: #1d4ed8;
+      --kmt-bg: #dbeafe;
+      --dpp: #15803d;
+      --dpp-bg: #dcfce7;
+      --warn-bg: #fef3c7;
+      --warn-text: #92400e;
+      --ai-bg: #f3e8ff;
+      --ai-text: #6b21a8;
+      --teal-bg: #ccfbf1;
+      --teal-text: #115e59;
+      --shadow: 0 2px 10px rgba(15, 23, 42, 0.05);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft JhengHei", "PingFang TC", "Noto Sans TC", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      font-size: 14px;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 24px 18px 56px;
+    }
+
+    header.hero {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 24px 26px;
+      box-shadow: var(--shadow);
+      margin-bottom: 18px;
+    }
+
+    header.hero h1 {
+      margin: 0 0 8px;
+      font-size: 22px;
+      line-height: 1.35;
+    }
+
+    .meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 18px;
+      color: var(--muted);
+      font-size: 13px;
+      margin-bottom: 14px;
+    }
+
+    .rules-box {
+      background: var(--surface-alt);
+      border-left: 4px solid var(--accent);
+      border-radius: 6px;
+      padding: 12px 14px;
+      font-size: 13px;
+      color: #273449;
+    }
+
+    .rules-box ul {
+      margin: 6px 0 0;
+      padding-left: 18px;
+    }
+
+    .toolbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(246, 248, 251, 0.94);
+      backdrop-filter: blur(8px);
+      padding: 10px 0 12px;
+      margin-bottom: 14px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 600;
+      transition: all 0.15s ease;
+    }
+
+    .pill:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: var(--accent-soft);
+    }
+
+    .pill .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .dot-multi { background: #16a34a; }
+    .dot-single { background: #d97706; }
+
+    .filter-controls {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .btn-filter {
+      cursor: pointer;
+      padding: 6px 12px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .btn-filter.active {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+    }
+
+    section.card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 20px 22px;
+      margin-bottom: 22px;
+      box-shadow: var(--shadow);
+    }
+
+    .city-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 12px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .city-title {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .city-title h2 {
+      margin: 0;
+      font-size: 19px;
+    }
+
+    .matchup {
+      font-size: 13px;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 2px 9px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .badge-multi { background: #dcfce7; color: #166534; }
+    .badge-single { background: var(--warn-bg); color: var(--warn-text); }
+    .badge-dual { background: #dbeafe; color: #1e40af; }
+    .badge-landline { background: #e2e8f0; color: #334155; }
+    .badge-online { background: var(--teal-bg); color: var(--teal-text); }
+    .badge-hybrid { background: #fef3c7; color: #92400e; }
+    .badge-ai { background: var(--ai-bg); color: var(--ai-text); }
+
+    .city-note {
+      font-size: 13px;
+      color: var(--muted);
+      margin: 0 0 12px;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 920px;
+    }
+
+    th, td {
+      border: 1px solid var(--border);
+      padding: 10px 11px;
+      vertical-align: top;
+      text-align: left;
+    }
+
+    th {
+      background: var(--surface-alt);
+      font-weight: 700;
+      font-size: 13px;
+      color: #243047;
+      white-space: nowrap;
+    }
+
+    td.num {
+      text-align: center;
+      font-variant-numeric: tabular-nums;
+      white-space: nowrap;
+      font-weight: 700;
+    }
+
+    tr.group-alt td {
+      background: #fafcff;
+    }
+
+    tr.single-wave td {
+      background: #fffdf7;
+    }
+
+    tr.ai-row td {
+      background: #fdfaff;
+    }
+
+    .org-name {
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .org-sub {
+      display: block;
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    .change-cell {
+      background: #f8fafc !important;
+      font-size: 13px;
+      line-height: 1.55;
+      min-width: 210px;
+    }
+
+    .sampling-cell {
+      font-size: 12.5px;
+      line-height: 1.55;
+      min-width: 260px;
+    }
+
+    .sampling-cell .badge {
+      margin-bottom: 4px;
+    }
+
+    .gap-kmt { color: var(--kmt); font-weight: 700; }
+    .gap-dpp { color: var(--dpp); font-weight: 700; }
+
+    .undecided {
+      display: block;
+      font-size: 12px;
+      color: var(--muted);
+      font-weight: 400;
+      margin-top: 2px;
+    }
+
+    footer.notes {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 18px 22px;
+      font-size: 13px;
+      color: var(--muted);
+      box-shadow: var(--shadow);
+    }
+
+    footer.notes h3 {
+      margin-top: 0;
+      font-size: 15px;
+      color: var(--text);
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    .chart-panel {
+      background: #f8fafd;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 12px 14px;
+      margin-bottom: 14px;
+    }
+
+    .chart-panel-head {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 8px;
+      font-size: 12.5px;
+      color: var(--muted);
+    }
+
+    .chart-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .legend-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .chart-tooltip {
+      position: fixed;
+      z-index: 99;
+      max-width: 270px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 8px 10px;
+      font-size: 12px;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.12);
+      pointer-events: none;
+    }
+
+    @media print {
+      body { background: #fff; font-size: 12px; }
+      .toolbar { display: none; }
+      section.card { box-shadow: none; break-inside: avoid; }
+      table { min-width: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="hero">
+      <h1>2026 年全台六大直轄市近 3 個月市長民調整理（含同機構變化與抽樣結構）</h1>
+      <div class="meta-row">
+        <span><strong>資料期間：</strong>2026/08/16 ～ 2026/11/16（11/28 投票日前 10 日民調封關前夕）</span>
+        <span><strong>適用方案：</strong>方案 A（維持近 3 個月、各直轄市獨立製表）</span>
+      </div>
+      <div class="rules-box">
+        <strong>整理與解讀原則：</strong>
+        <ul>
+          <li><strong>同機構比較原則：</strong>僅對<strong>同一家執行機構</strong>於近 3 個月內連續發布 2 波（含）以上之調查計算支持度增減與差距變化；不同機構因抽樣母體、拒訪處理及加權模型差異甚大，不跨機構換算趨勢。</li>
+          <li><strong>來源歸屬：</strong>彙整自 TVBS民意調查中心、ETtoday民調雲、信民兩岸研究協會（戴立安設計分析／畢肯市場研究執行）、世新大學民調中心、佛光大學民調中心、年代民調中心、震傳媒／山水民調、聯合報、中國時報／艾普羅、鋒燦傳媒、新台灣國策智庫（趨勢民調）、台灣研究學會及 TPOC台灣議題研究中心等公開資訊。</li>
+        </ul>
+      </div>
+    </header>
+
+    <div class="toolbar">
+      <nav class="nav-pills" aria-label="直轄市快速導覽">
+        <a class="pill" href="#method"><span class="dot" style="background:#1d4ed8;"></span>抽樣結構總覽</a>
+        <a class="pill" href="#taipei"><span class="dot dot-multi"></span>臺北市 (3家多波)</a>
+        <a class="pill" href="#new-taipei"><span class="dot dot-multi"></span>新北市 (2家多波)</a>
+        <a class="pill" href="#taoyuan"><span class="dot dot-single"></span>桃園市 (僅單波)</a>
+        <a class="pill" href="#taichung"><span class="dot dot-multi"></span>臺中市 (1家多波)</a>
+        <a class="pill" href="#tainan"><span class="dot dot-single"></span>臺南市 (傳統1波/AI 2波)</a>
+        <a class="pill" href="#kaohsiung"><span class="dot dot-single"></span>高雄市 (僅單波)</a>
+      </nav>
+      <div class="filter-controls">
+        <button class="btn-filter active" data-filter="all" onclick="setFilter('all', this)">顯示全部調查</button>
+        <button class="btn-filter" data-filter="multi" onclick="setFilter('multi', this)">僅看同機構多波可比</button>
+      </div>
+    </div>
+
+    <!-- 抽樣結構總覽 -->
+    <section class="card" id="method">
+      <div class="city-header">
+        <div class="city-title">
+          <h2>抽樣結構總覽：各類調查方法差異</h2>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>調查方法類型</th>
+              <th>代表機構</th>
+              <th>抽樣架構與接觸方式</th>
+              <th>方法學重點說明</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="badge badge-dual">市話＋手機雙底冊</span></td>
+              <td>TVBS（北市封關）、信民協會／畢肯、聯合報、台灣研究學會</td>
+              <td>住宅電話抽樣＋行動電話字首／資料庫隨機跳號（CATI 人員電訪）</td>
+              <td>可觸及無市話之「唯手機族」與年輕族群；常見比例為市話約 7 成、手機約 3 成（如信民協會約 750:322），或接近 1:1（如 TVBS 北市封關 673:658）。</td>
+            </tr>
+            <tr>
+              <td><span class="badge badge-landline">純市話電話訪問</span></td>
+              <td>世新大學、佛光大學、年代民調、震傳媒／山水、中時／艾普羅、新台灣國策智庫</td>
+              <td>住宅電話簿系統抽樣＋末兩碼（或後四碼）隨機（CATI 人員電訪）</td>
+              <td>涵蓋住宅電話用戶（含未登錄號碼），惟未裝設市話之唯手機族群較難觸及，通常再依性別、年齡、地區及教育程度進行人口加權。</td>
+            </tr>
+            <tr>
+              <td><span class="badge badge-hybrid">市話＋網路混合</span></td>
+              <td>鋒燦傳媒</td>
+              <td>市話電話訪問＋網路樣本合併加權</td>
+              <td>結合電話與網路受訪者，合併後依性別、年齡及行政區結構加權（如高雄有效樣本 1,824 份）。</td>
+            </tr>
+            <tr>
+              <td><span class="badge badge-online">封閉式網路問卷</span></td>
+              <td>ETtoday民調雲</td>
+              <td>自建會員資料庫分層比例抽樣，以手機簡訊與 EDM 發送邀請</td>
+              <td>樣本規模較大（1,190～1,965 份），受訪者結構與純電訪不同，依性別、年齡、行政區及教育程度進行加權校正。</td>
+            </tr>
+            <tr>
+              <td><span class="badge badge-ai">AI 虛擬受眾模擬</span></td>
+              <td>TPOC台灣議題研究中心</td>
+              <td>Silicon Sampling 矽基樣本技術（LLM 依人口與投票參數生成虛擬受眾）</td>
+              <td>屬大數據模型模擬（如臺南生成 15,453 個虛擬代理人），<strong>非傳統機率抽樣民調</strong>，不適用傳統抽樣誤差與信賴區間。</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 1. 臺北市 -->
+    <section class="card city-section" id="taipei" data-has-multi="true">
+      <div class="city-header">
+        <div class="city-title">
+          <h2>1. 臺北市</h2>
+          <span class="badge badge-multi">3 家機構具同機構連續變化</span>
+        </div>
+        <span class="matchup">國民黨：蔣萬安 vs 民進黨：沈伯洋</span>
+      </div>
+      <p class="city-note">近 3 個月內共有 TVBS民意調查中心（3 波）、ETtoday民調雲（4 波）、信民兩岸研究協會（3 波）發布多次追蹤調查；另有新台灣國策智庫、鋒燦傳媒單次調查。</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>調查機構</th>
+              <th>調查 / 公布時間</th>
+              <th>蔣萬安（藍）</th>
+              <th>沈伯洋（綠）</th>
+              <th>雙方差距</th>
+              <th>同機構期間變化</th>
+              <th>抽樣結構說明</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- TVBS -->
+            <tr class="multi-row">
+              <td rowspan="3">
+                <span class="org-name">TVBS民意調查中心</span>
+                <span class="org-sub">共 3 波追蹤</span>
+              </td>
+              <td>10月上旬（10/8 公布）</td>
+              <td class="num">49%</td>
+              <td class="num">41%</td>
+              <td class="num"><span class="gap-kmt">蔣 +8.0%</span></td>
+              <td rowspan="3" class="change-cell">
+                <strong>蔣萬安：</strong>49% → 46% → 46%（<strong>-3.0%</strong>）<br>
+                <strong>沈伯洋：</strong>41% → 42% → 44%（<strong>+3.0%</strong>）<br>
+                差距由蔣領先 8 個百分點收斂至 2 個百分點。
+              </td>
+              <td class="sampling-cell">
+                <span class="badge badge-landline">市話為主</span><br>
+                針對有投票意願選民進行電話訪問（早期以市話為主）。
+              </td>
+            </tr>
+            <tr class="multi-row">
+              <td>10月底（電視辯論後）</td>
+              <td class="num">46%</td>
+              <td class="num">42%</td>
+              <td class="num"><span class="gap-kmt">蔣 +4.0%</span></td>
+              <td class="sampling-cell">
+                <span class="badge badge-landline">電話訪問</span><br>
+                針對有投票意願選民之電話調查。
+              </td>
+            </tr>
+            <tr class="multi-row">
+              <td>11/14–15 調查（11/16 封關公布）</td>
+              <td class="num">46%</td>
+              <td class="num">44%</td>
+              <td class="num">
+                <span class="gap-kmt">蔣 +2.0%</span>
+                <span class="undecided">未決定 10%</span>
+              </td>
+              <td class="sampling-cell">
+                <span class="badge badge-dual">市話＋手機雙底冊</span><br>
+                有效樣本 <strong>1,331 份</strong>（市話 673 份、手機 658 份）；95% 信心水準下誤差 <strong>±2.7%</strong> 以內；對象為有投票意願選民。
+              </td>
+            </tr>
+
+            <!-- ETtoday -->
+            <tr class="multi-row group-alt">
+              <td rowspan="4">
+                <span class="org-name">ETtoday民調雲</span>
+                <span class="org-sub">共 4 波追蹤</span>
+              </td>
+              <td>10/21–25 調查（10/27–28 報導）</td>
+              <td class="num">48.6%</td>
+              <td class="num">41.1%</td>
+              <td class="num"><span class="gap-kmt">蔣 +7.5%</span></td>
+              <td rowspan="4" class="change-cell">
+                <strong>蔣萬安：</strong>48.6% → 52.0% → 50.7% → 48.1%（整體 <strong>-0.5%</strong>）<br>
+                <strong>沈伯洋：</strong>41.1% → 40.7% → 41.9% → 42.0%（整體 <strong>+0.9%</strong>）<br>
+                差距先擴大至 11.3%，封關回落至 6.1%。
+              </td>
+              <td class="sampling-cell">
+                <span class="badge badge-online">封閉式網路問卷</span><br>
+                手機簡訊與 EDM 通知分層比例抽樣；有效樣本 <strong>1,462 份</strong>；95% 信心水準下誤差 <strong>±2.56%</strong>。
+              </td>
+            </tr>
+            <tr class="multi-row group-alt">
+              <td>10/31–11/1 調查（11/2 公布）</td>
+              <td class="num">52.0%</td>
+              <td class="num">40.7%</td>
+              <td class="num"><span class="gap-kmt">蔣 +11.3%</span></td>
+              <td class="sampling-cell">
+                <span class="badge badge-online">封閉式網路問卷</span><br>
+                同上方法；有效樣本 <strong>1,965 份</strong>；95% 信心水準下誤差 <strong>±2.2%</strong>。
+              </td>
+            </tr>
+            <tr class="multi-row group-alt">
+              <td>11/1–3 調查（11/5 公布）</td>
+              <td class="num">50.7%</td>
+              <td class="num">41.9%</td>
+              <td class="num"><span class="gap-kmt">蔣 +8.8%</span></td>
+              <td class="sampling-cell">
+                <span class="badge badge-online">封閉式網路問卷</span><br>
+                同上方法；有效樣本 <strong>1,853 份</strong>；95% 信心水準下誤差 <strong>±2.28%</strong>。
+              </td>
+            </tr>
+            <tr class="multi-row group-alt">
+              <td>11/13–15 調查（11/16 封關公布）</td>
+              <td class="num">48.1%</td>
+              <td class="num">42.0%</td>
+              <td class="num">
+                <span class="gap-kmt">蔣 +6.1%</span>
+                <span class="undecided">未表態 7.5%</span>
+              </td>
+              <td class="sampling-cell">
+                <span class="badge badge-online">封閉式網路問卷</span><br>
+                同上方法（依性別、年齡、行政區及教育程度加權）；有效樣本 <strong>1,505 份</strong>；95% 信心水準下誤差 <strong>±2.53%</strong>。
+              </td>
+            </tr>
+
+            <!-- 信民 -->
+            <tr class="multi-row">
+              <td rowspan="3">
+                <span class="org-name">信民兩岸研究協會</span>
+                <span class="org-sub">戴立安分析／畢肯執行（共 3 波）</span>
+              </td>
+              <td>9/16–18 調查（9/22 公布）</td>
+              <td class="num">41.7%</td>
+              <td class="num">40.5%</td>
+              <td class="num"><span class="gap-kmt">蔣 +1.2%</span></td>
+              <td rowspan="3" class="change-cell">
+                <strong>蔣萬安：</strong>41.7% → 33.3% → 33.8%（<strong>-7.9%</strong>）<br>
+                <strong>沈伯洋：</strong>40.5% → 50.3% → 48.6%（<strong>+8.1%</strong>）<br>
+                由蔣微幅領先 1.2% 轉為沈領先 14.8%。
+              </td>
+              <td class="sampling-cell">
+                <span class="badge badge-dual">市話＋手機雙架構</span><br>
+                CATI 電腦輔助電訪；有效樣本 <strong>1,076 份</strong>（市話 752、手機 324）；95% 信心水準下最大誤差 <strong>±3.0%</strong>。
+              </td>
+            </tr>
+            <tr class="multi-row">
+              <td>10/14–16 調查（10/20 公布）</td>
+              <td class="num">33.3%</td>
+              <td class="num">50.3%</td>
+              <td class="num"><span class="gap-dpp">沈 +17.0%</span></td>
+              <td class="sampling-cell">
+                <span class="badge badge-dual">市話＋手機雙架構</span><br>
+                CATI 電訪；有效樣本 <strong>1,075 份</strong>（市話 753、手機 322）；95% 信心水準下最大誤差 <strong>±3.0%</strong>。
+              </td>
+            </tr>
+            <tr class="multi-row">
+              <td>11/11–13 調查（11/16 封關公布）</td>
+              <td class="num">33.8%</td>
+              <td class="num">48.6%</td>
+              <td class="num"><span class="gap-dpp">沈 +14.8%</span></td>
+              <td class="sampling-cell">
+                <span class="badge badge-dual">市話＋手機雙架構</span><br>
+                CATI 電訪；有效樣本 <strong>1,072 份</strong>（市話 750、手機 322）；最大誤差 <strong>±3.0%</strong>。（另戴立安推估得票率區間：沈 48%–52%、蔣 48.3%–52.2%）
+              </td>
+            </tr>
+
+            <!-- 單波 -->
+            <tr class="single-wave">
+              <td>
+                <span class="org-name">新台灣國策智庫／趨勢民調</span>
+                <span class="org-sub">聯合報報導</span>
+              </td>
+              <td>11/10–12 調查</td>
+              <td class="num">42.2%</td>
+              <td class="num">46.3%</td>
+              <td class="num"><span class="gap-dpp">沈 +4.1%</span></td>
+              <td>—（近 3 個月同機構僅此 1 波）</td>
+              <td class="sampling-cell">傳統電話訪問調查（報導未詳載樣本數明細）。</td>
+            </tr>
+            <tr class="single-wave">
+              <td><span class="org-name">鋒燦傳媒</span></td>
+              <td>11月中旬</td>
+              <td class="num">43.0%</td>
+              <td class="num">44.7%</td>
+              <td class="num"><span class="gap-dpp">沈 +1.7%</span></td>
+              <td>—（近 3 個月同機構僅此 1 波）</td>
+              <td class="sampling-cell">公開報導之選前單波調查（未詳載樣本數明細）。</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 2. 新北市 -->
+    <section class="card city-section" id="new-taipei" data-has-multi="true">
+      <div class="city-header">
+        <div class="city-title">
+          <h2>2. 新北市</h2>
+          <span class="badge badge-multi">2 家機構具同機構連續變化</span>
+        </div>
+        <span class="matchup">國民黨：李四川 vs 民進黨：蘇巧慧</span>
+      </div>
+      <p class="city-note">近 3 個月內共有 TVBS（2 波）、信民協會（2 波）可比較同機構變化；年代、震傳媒／山水、聯合報、台灣研究學會、中時／艾普羅各有 1 波公開調查。</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>調查機構</th>
+              <th>調查 / 公布時間</th>
+              <th>李四川（藍）</th>
+              <th>蘇巧慧（綠）</th>
+              <th>雙方差距</th>
+              <th>同機構期間變化</th>
+              <th>抽樣結構說明</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- TVBS -->
+            <tr class="multi-row">
+              <td rowspan="2">
+                <span class="org-name">TVBS民意調查中心</span>
+                <span class="org-sub">國民黨新北市議會黨團委託（共 2 波）</span>
+              </td>
+              <td>8/28–29 調查（9/2 公布）</td>
+              <td class="num">39.8%</td>
+              <td class="num">33.1%</td>
+              <td class="num"><span class="gap-kmt">李 +6.7%</span></td>
+              <td rowspan="2" class="change-cell">
+                <strong>李四川：</strong>39.8% → 42.6%（<strong>+2.8%</strong>）<br>
+                <strong>蘇巧慧：</strong>33.1% → 35.9%（<strong>+2.8%</strong>）<br>
+                兩人同步上升，差距維持 6.7%。
+              </td>
+              <td class="sampling-cell">
+                <span class="badge badge-landline">市話為主</span><br>
+                電話隨機抽樣（依 TVBS 常態規格約 1,000–1,100 份，95% 信心水準下約 ±3.0%）。
+              </td>
+            </tr>
+            <tr class="multi-row">
+              <td>9月底–10月初（10/7 公布）</td>
+              <td class="num">42.6%</td>
+              <td class="num">35.9%</td>
+              <td class="num">
+                <span class="gap-kmt">李 +6.7%</span>
+                <span class="undecided">未決定 19.9%</span>
+              </td>
+              <td class="sampling-cell">
+                <span class="badge badge-landline">市話為主</span><br>
+                電話隨機抽樣（市話為主）。
+              </td>
+            </tr>
+
+            <!-- 信民 -->
+            <tr class="multi-row group-alt">
+              <td rowspan="2">
+                <span class="org-name">信民兩岸研究協會</span>
+                <span class="org-sub">戴立安分析／畢肯執行（共 2 波）</span>
+              </td>
+              <td>8/26–28 調查（9/1 公布）</td>
+              <td class="num">34.7%</td>
+              <td class="num">35.2%</td>
+              <td class="num"><span class="gap-dpp">蘇 +0.5%</span></td>
+              <td rowspan="2" class="change-cell">
+                <strong>李四川：</strong>34.7% → 30.0%（<strong>-4.7%</strong>）<br>
+                <strong>蘇巧慧：</strong>35.2% → 43.1%（<strong>+7.9%</strong>）<br>
+                差距由蘇領先 0.5% 擴大至 13.1%。
+              </td>
+              <td class="sampling-cell">
+                <span class="badge badge-dual">市話＋手機雙架構</span><br>
+                有效樣本 <strong>1,071 份</strong>（市話 749 人、手機 322 人）；95% 信心水準下最大誤差 <strong>±3.0%</strong>。
+              </td>
+            </tr>
+            <tr class="multi-row group-alt">
+              <td>10/6–8 調查（10/13 公布）</td>
+              <td class="num">30.0%</td>
+              <td class="num">43.1%</td>
+              <td class="num">
+                <span class="gap-dpp">蘇 +13.1%</span>
+                <span class="undecided">未表態 30.3%</span>
+              </td>
+              <td class="sampling-cell">
+                <span class="badge badge-dual">市話＋手機雙架構</span><br>
+                有效樣本 <strong>1,073 份</strong>（市話 750 人、手機 323 人）；95% 信心水準下最大誤差 <strong>±3.0%</strong>。
+              </td>
+            </tr>
+
+            <!-- 單波 -->
+            <tr class="single-wave">
+              <td><span class="org-name">年代民調中心</span></td>
+              <td>8/24–26 調查（8/28 公布）</td>
+              <td class="num">32.2%</td>
+              <td class="num">37.8%</td>
+              <td class="num">
+                <span class="gap-dpp">蘇 +5.6%</span>
+                <span class="undecided">未表態 26.0%</span>
+              </td>
+              <td>—（近 3 個月同機構僅此 1 波）</td>
+              <td class="sampling-cell">傳統電話訪問（當時報導曾討論樣本政黨傾向分布）。</td>
+            </tr>
+            <tr class="single-wave">
+              <td><span class="org-name">震傳媒／山水民調</span></td>
+              <td>9/20–21 調查（9/23 發布）</td>
+              <td class="num">37.1%</td>
+              <td class="num">38.2%</td>
+              <td class="num"><span class="gap-dpp">蘇 +1.1%</span></td>
+              <td>—（近 3 個月同機構僅此 1 波）</td>
+              <td class="sampling-cell">
+                <span class="badge badge-landline">純市話</span><br>
+                CATI 住宅電話系統抽樣＋尾 2 碼隨機；有效樣本 <strong>1,076 人</strong>；誤差 <strong>±2.99%</strong>（依地區、性別、年齡、教育程度加權）。
+              </td>
+            </tr>
+            <tr class="single-wave">
+              <td><span class="org-name">聯合報</span></td>
+              <td>11/1–7 調查（11/9 公布）</td>
+              <td class="num">39%</td>
+              <td class="num">42%</td>
+              <td class="num">
+                <span class="gap-dpp">蘇 +3.0%</span>
+                <span class="undecided">未表態 19%</span>
+              </td>
+              <td>—（近 3 個月同機構僅此 1 波）</td>
+              <td class="sampling-cell">
+                <span class="badge badge-dual">市話＋手機雙底冊</span><br>
+                雙底冊尾數隨機抽樣（增補唯手機族）；有效樣本 <strong>1,114 人</strong>（261 人拒訪）；誤差 <strong>±3.0%</strong> 以內（依性別、年齡加權）。
+              </td>
+            </tr>
+            <tr class="single-wave">
+              <td><span class="org-name">台灣研究學會</span></td>
+              <td>11/8–10 調查（11/13 公布）</td>
+              <td class="num">43.1%</td>
+              <td class="num">38.4%</td>
+              <td class="num">
+                <span class="gap-kmt">李 +4.7%</span>
+                <span class="undecided">未表態 16.3%</span>
+              </td>
+              <td>—（近 3 個月同機構僅此 1 波）</td>
+              <td class="sampling-cell">
+                <span class="badge badge-dual">市話＋手機雙底冊</span><br>
+                雙底冊尾數隨機抽樣；有效樣本 <strong>1,373 人</strong>（市話 1,000、手機 373）；誤差 <strong>±2.64%</strong>（依戶籍地、性別、年齡、教育程度加權）。
+              </td>
+            </tr>
+            <tr class="single-wave">
+              <td><span class="org-name">中國時報／艾普羅</span></td>
+              <td>11/11–13 調查（11/16 封關公布）</td>
+              <td class="num">37.0%</td>
+              <td class="num">33.4%</td>
+              <td class="num">
+                <span class="gap-kmt">李 +3.6%</span>
+                <span class="undecided">未決定 14.6%</span>
+              </td>
+              <td>—（近 3 個月同機構僅此 1 波）</td>
+              <td class="sampling-cell">
+                <span class="badge badge-landline">純市話</span><br>
+                住宅電話簿分層比例隨機抽樣（尾數兩碼隨機）；有效樣本 <strong>1,083 份</strong>；誤差 <strong>±3.0%</strong> 以內（依性別、年齡、行政區、教育程度加權）。
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 3. 桃園市 -->
+    <section class="card city-section" id="taoyuan" data-has-multi="false">
+      <div class="city-header">
+        <div class="city-title">
+          <h2>3. 桃園市</h2>
+          <span class="badge badge-single">近 3 個月查無同機構第 2 波公開資料</span>
+        </div>
+        <span class="matchup">國民黨：張善政 vs 民進黨：黃世杰</span>
+      </div>
+      <p class="city-note">近 3 個月（2026/8/16–11/16）各機構僅有單次公開調查，依原則僅列示各機構結果與抽樣結構，不跨機構換算變化。</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>調查機構</th>
+              <th>調查 / 公布時間</th>
+              <th>張善政（藍）</th>
+              <th>黃世杰（綠）</th>
+              <th>雙方差距</th>
+              <th>同機構期間變化</th>
+              <th>抽樣結構說明</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="single-wave">
+              <td><span class="org-name">新台灣國策智庫</span></td>
+              <td>9/15–17 調查（9/22 發布）</td>
+              <td class="num">47.0%</td>
+              <td class="num">25.9%</td>
+              <td class="num">
+                <span class="gap-kmt">張 +21.1%</span>
+                <span class="undecided">無法選出 27.1%</span>
+              </td>
+              <td>—（近 3 個月同機構僅此 1 波）</td>
+              <td class="sampling-cell">
+                <span class="badge badge-landline">純市話</span><br>
+                市話隨機抽樣（設籍桃園市 20 歲以上）；有效樣本 <strong>1,082 份</strong>；95% 信心水準下誤差 <strong>±2.98%</strong>。
+              </td>
+            </tr>
+            <tr class="single-wave">
+              <td><span class="org-name">ETtoday民調雲</span></td>
+              <td>10/29–11/1 調查（11/4 公布）</td>
+              <td class="num">47.4%</td>
+              <td class="num">36.0%</td>
+              <td class="num">
+                <span class="gap-kmt">張 +11.4%</span>
+                <span class="undecided">尚未決定 15.6%</span>
+              </td>
+              <td>—（近 3 個月同機構僅此 1 波）</td>
+              <td class="sampling-cell">
+                <span class="badge badge-online">封閉式網路問卷</span><br>
+                手機簡訊及 EDM 通知分層比例抽樣；有效樣本 <strong>1,190 份</strong>；95% 信心水準下誤差 <strong>±2.84%</strong>。
+              </td>
+            </tr>
+            <tr class="single-wave">
+              <td><span class="org-name">年代民調中心</span></td>
+              <td>11/2–4 調查（11/5 發布）</td>
+              <td class="num">35.0%</td>
+              <td class="num">28.0%</td>
+              <td class="num">
+                <span class="gap-kmt">張 +7.0%</span>
+                <span class="undecided">未決定 32.5%</span>
+              </td>
+              <td>—（近 3 個月同機構僅此 1 波）</td>
+              <td class="sampling-cell">
+                <span class="badge badge-landline">純市話</span><br>
+                CATI 行政區分層隨機抽樣（後兩碼隨機）；有效樣本 <strong>1,072 份</strong>；誤差 <strong>±3.0%</strong> 以內。（註：「一定會投票」選民中為張 36.8% vs 黃 32.5%）
+              </td>
+            </tr>
+            <tr class="single-wave">
+              <td>
+                <span class="org-name">信民兩岸研究協會</span>
+                <span class="org-sub">戴立安分析／畢肯執行</span>
+              </td>
+              <td>11/4–6 調查（11/10 公布）</td>
+              <td class="num">36.9%</td>
+              <td class="num">32.8%</td>
+              <td class="num">
+                <span class="gap-kmt">張 +4.1%</span>
+                <span class="undecided">未表態 24.0%</span>
+              </td>
+              <td>—（近 3 個月同機構僅此 1 波）</td>
+              <td class="sampling-cell">
+                <span class="badge badge-dual">市話＋手機雙架構</span><br>
+                雙架構 RDD 隨機抽樣；有效樣本 <strong>1,074 份</strong>（市話 751、手機 323）；最大誤差 <strong>±3.0%</strong>。（註：「一定會投票」選民中為黃 42.7% vs 張 41.4%）
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 4. 臺中市 -->
+    <section class="card city-section" id="taichung" data-has-multi="true">
+      <div class="city-header">
+        <div class="city-title">
+          <h2>4. 臺中市</h2>
+          <span class="badge badge-multi">1 家機構具同機構連續變化</span>
+        </div>
+        <span class="matchup">國民黨：江啟臣 vs 民進黨：何欣純</span>
+      </div>
+      <p class="city-note">近 3 個月內世新大學民調中心（國民黨團委託）公開發布 2 波調查，可追蹤同機構變化；TVBS、年代、信民協會與佛光大學各為單次公開調查。</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>調查機構</th>
+              <th>調查 / 公布時間</th>
+              <th>江啟臣（藍）</th>
+              <th>何欣純（綠）</th>
+              <th>雙方差距</th>
+              <th>同機構期間變化</th>
+              <th>抽樣結構說明</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="multi-row">
+              <td rowspan="2">
+                <span class="org-name">世新大學民調中心</span>
+                <span class="org-sub">臺中市議會國民黨團委託（共 2 波）</span>
+              </td>
+              <td>10/15–16 調查（10/17 公布）</td>
+              <td class="num">39.8%</td>
+              <td class="num">28.7%</td>
+              <td class="num"><span class="gap-kmt">江 +11.1%</span></td>
+              <td rowspan="2" class="change-cell">
+                <strong>江啟臣：</strong>39.8% → 39.2%（<strong>-0.6%</strong>）<br>
+                <strong>何欣純：</strong>28.7% → 30.0%（<strong>+1.3%</strong>）<br>
+                差距縮小 1.9 個百分點。
+              </td>
+              <td class="sampling-cell">
+                <span class="badge badge-landline">電話訪問</span><br>
+                依母體人口結構加權；有效樣本 <strong>1,070 人</strong>；95% 信心水準下誤差 <strong>±3.0%</strong> 以內。
+              </td>
+            </tr>
+            <tr class="multi-row">
+              <td>11/5–7 調查（11/9 公布）</td>
+              <td class="num">39.2%</td>
+              <td class="num">30.0%</td>
+              <td class="num">
+                <span class="gap-kmt">江 +9.2%</span>
+                <span class="undecided">未表態約 23.2%</span>
+              </td>
+              <td class="sampling-cell">
+                <span class="badge badge-landline">純市話</span><br>
+                CATI 電話號碼簿分層系統抽樣＋末兩碼隨機；有效樣本 <strong>1,068 位</strong>；誤差 <strong>±3.0%</strong> 以內（依性別、年齡、學歷及行政區加權）。
+              </td>
+            </tr>
+
+            <tr class="single-wave">
+              <td>
+                <span class="org-name">TVBS民意調查中心</span>
+                <span class="org-sub">臺中市議會國民黨團委託</span>
+              </td>
+              <td>9/7–11 調查（9/14 公布）</td>
+              <td class="num">45.1%</td>
+              <td class="num">32.5%</td>
+              <td class="num"><span class="gap-kmt">江 +12.6%</span></td>
+              <td>—（近 3 個月同機構僅此 1 波）</td>
+              <td class="sampling-cell">
+                <span class="badge badge-landline">電話訪問</span><br>
+                CATI 電話後兩碼隨機抽樣；有效樣本 <strong>1,086 位</strong>（接觸 1,291 位）；誤差 <strong>±3.0%</strong> 以內（依性別、年齡、地區、教育程度加權）。
+              </td>
+            </tr>
+            <tr class="single-wave">
+              <td><span class="org-name">年代民調中心</span></td>
+              <td>10月初報導</td>
+              <td class="num">37.3%</td>
+              <td class="num">31.3%</td>
+              <td class="num"><span class="gap-kmt">江 +6.0%</span></td>
+              <td>—（近 3 個月同機構僅此 1 波）</td>
+              <td class="sampling-cell">
+                <span class="badge badge-landline">純市話</span><br>
+                傳統市話抽樣為主；有效樣本 <strong>1,068 份</strong>；95% 信心水準下誤差 <strong>±3.0%</strong> 以內。
+              </td>
+            </tr>
+            <tr class="single-wave">
+              <td>
+                <span class="org-name">信民兩岸研究協會</span>
+                <span class="org-sub">戴立安分析／畢肯執行</span>
+              </td>
+              <td>10/28–30 調查（11/3 公布）</td>
+              <td class="num">30.4%</td>
+              <td class="num">41.1%</td>
+              <td class="num"><span class="gap-dpp">何 +10.7%</span></td>
+              <td>—（近 3 個月同機構僅此 1 波）</td>
+              <td class="sampling-cell">
+                <span class="badge badge-dual">市話＋手機雙架構</span><br>
+                雙架構 CATI 電訪；有效樣本 <strong>1,077 人</strong>（市話 752、手機 325）；95% 信心水準下最大誤差 <strong>±3.0%</strong>。
+              </td>
+            </tr>
+            <tr class="single-wave">
+              <td>
+                <span class="org-name">佛光大學民調中心</span>
+                <span class="org-sub">臺中市議會國民黨團委託</span>
+              </td>
+              <td>10/29–31 調查（11/2 公布）</td>
+              <td class="num">38.3%</td>
+              <td class="num">28.1%</td>
+              <td class="num"><span class="gap-kmt">江 +10.2%</span></td>
+              <td>—（近 3 個月同機構僅此 1 波）</td>
+              <td class="sampling-cell">
+                <span class="badge badge-landline">純市話</span><br>
+                市話分層隨機抽樣（末兩碼隨機）；有效樣本 <strong>1,003 人</strong>；誤差 <strong>±3.1%</strong> 以內（依性別、年齡、學歷、行政區加權）。
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 5. 臺南市 -->
+    <section class="card city-section" id="tainan" data-has-multi="true">
+      <div class="city-header">
+        <div class="city-title">
+          <h2>5. 臺南市</h2>
+          <span class="badge badge-single">傳統抽樣僅 1 波</span>
+          <span class="badge badge-ai">TPOC AI 模擬具 2 期報告</span>
+        </div>
+        <span class="matchup">民進黨：陳亭妃 vs 國民黨：謝龍介</span>
+      </div>
+      <p class="city-note">近 3 個月內傳統抽樣民調僅查得新台灣國策智庫 1 波；另 TPOC台灣議題研究中心發布 2 期 AI 虛擬受眾模擬（非機率抽樣，單獨標示供參）。</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>調查機構</th>
+              <th>調查 / 公布時間</th>
+              <th>陳亭妃（綠）</th>
+              <th>謝龍介（藍）</th>
+              <th>雙方差距</th>
+              <th>同機構期間變化</th>
+              <th>抽樣結構說明</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="single-wave">
+              <td>
+                <span class="org-name">新台灣國策智庫</span>
+                <span class="org-sub">趨勢民調執行</span>
+              </td>
+              <td>10/13–15 調查（10/21 公布）</td>
+              <td class="num">59.4%</td>
+              <td class="num">22.6%</td>
+              <td class="num">
+                <span class="gap-dpp">陳 +36.8%</span>
+                <span class="undecided">未表態 17.0%</span>
+              </td>
+              <td>—（近 3 個月傳統抽樣僅此 1 波）</td>
+              <td class="sampling-cell">
+                <span class="badge badge-landline">純市話</span><br>
+                中華電信市內號碼簿尾數兩碼隨機分層比例抽樣；有效樣本 <strong>1,071 份</strong>；誤差 <strong>±2.98%</strong>（多重反覆加權）。
+              </td>
+            </tr>
+            <tr class="multi-row ai-row">
+              <td rowspan="2">
+                <span class="org-name">TPOC台灣議題研究中心</span>
+                <span class="org-sub">AI 虛擬受眾模擬（共 2 期，非抽樣民調）</span>
+              </td>
+              <td>10/19 模型執行（10/20–21 公布）</td>
+              <td class="num">45.9%</td>
+              <td class="num">33.8%</td>
+              <td class="num"><span class="gap-dpp">陳 +12.1%</span></td>
+              <td rowspan="2" class="change-cell">
+                <strong>陳亭妃：</strong>45.9% → 49.1%（<strong>+3.2%</strong>）<br>
+                <strong>謝龍介：</strong>33.8% → 39.5%（<strong>+5.7%</strong>）<br>
+                AI 模擬差距縮小 2.5 個百分點。
+              </td>
+              <td class="sampling-cell">
+                <span class="badge badge-ai">AI 虛擬受眾模擬</span><br>
+                Silicon Sampling 矽基樣本技術，以 LLM 依臺南 37 區人口特徵生成 <strong>15,453 個</strong>虛擬代理人模擬；<strong>不適用傳統抽樣誤差</strong>。
+              </td>
+            </tr>
+            <tr class="multi-row ai-row">
+              <td>11/11 發布</td>
+              <td class="num">49.1%</td>
+              <td class="num">39.5%</td>
+              <td class="num">
+                <span class="gap-dpp">陳 +9.6%</span>
+                <span class="undecided">未決定 7.6%</span>
+              </td>
+              <td class="sampling-cell">
+                <span class="badge badge-ai">AI 虛擬受眾模擬</span><br>
+                同上 <strong>15,453 個</strong> AI 虛擬受眾代理人模擬（非傳統電話或問卷抽樣）。
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 6. 高雄市 -->
+    <section class="card city-section" id="kaohsiung" data-has-multi="false">
+      <div class="city-header">
+        <div class="city-title">
+          <h2>6. 高雄市</h2>
+          <span class="badge badge-single">近 3 個月查無同機構第 2 波公開資料</span>
+        </div>
+        <span class="matchup">民進黨：賴瑞隆 vs 國民黨：柯志恩</span>
+      </div>
+      <p class="city-note">近 3 個月（2026/8/16–11/16）各機構僅有單次公開調查，因各家採純市話、網路或市話＋網路混合模式而有顯著機構差異，不跨機構換算變化。</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>調查機構</th>
+              <th>調查 / 公布時間</th>
+              <th>賴瑞隆（綠）</th>
+              <th>柯志恩（藍）</th>
+              <th>雙方差距</th>
+              <th>同機構期間變化</th>
+              <th>抽樣結構說明</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="single-wave">
+              <td><span class="org-name">鋒燦傳媒</span></td>
+              <td>10/16–21 調查（11/2 報導）</td>
+              <td class="num">47.8%</td>
+              <td class="num">27.4%</td>
+              <td class="num"><span class="gap-dpp">賴 +20.4%</span></td>
+              <td>—（近 3 個月同機構僅此 1 波）</td>
+              <td class="sampling-cell">
+                <span class="badge badge-hybrid">市話＋網路混合</span><br>
+                雙重抽樣；有效樣本 <strong>1,824 份</strong>（市話 1,014、網路 810）；95% 信心水準下誤差 <strong>±2.30%</strong>（依性別、年齡、行政區加權）。
+              </td>
+            </tr>
+            <tr class="single-wave">
+              <td><span class="org-name">ETtoday民調雲</span></td>
+              <td>10/20–25 調查（10/30 公布）</td>
+              <td class="num">43.2%</td>
+              <td class="num">43.1%</td>
+              <td class="num">
+                <span class="gap-dpp">賴 +0.1%</span>
+                <span class="undecided">尚未決定 12.7%</span>
+              </td>
+              <td>—（近 3 個月同機構僅此 1 波）</td>
+              <td class="sampling-cell">
+                <span class="badge badge-online">封閉式網路問卷</span><br>
+                EDM 及手機簡訊通知分層比例抽樣（設籍高雄 38 區）；有效樣本 <strong>1,338 份</strong>；95% 信心水準下誤差 <strong>±2.68%</strong>。
+              </td>
+            </tr>
+            <tr class="single-wave">
+              <td><span class="org-name">聯合報</span></td>
+              <td>10/28–31 調查（11/2 公布）</td>
+              <td class="num">40%</td>
+              <td class="num">33%</td>
+              <td class="num">
+                <span class="gap-dpp">賴 +7.0%</span>
+                <span class="undecided">未決定 26%</span>
+              </td>
+              <td>—（近 3 個月同機構僅此 1 波）</td>
+              <td class="sampling-cell">
+                <span class="badge badge-dual">市話與手機抽樣</span><br>
+                市話與手機雙底冊（或複合）抽樣；有效樣本 <strong>1,101 人</strong>（279 人拒訪）；95% 信心水準下誤差 <strong>±3.0%</strong> 以內。
+              </td>
+            </tr>
+            <tr class="single-wave">
+              <td><span class="org-name">年代民調中心</span></td>
+              <td>11/12–14 調查（11/16 公布）</td>
+              <td class="num">43.9%</td>
+              <td class="num">24.7%</td>
+              <td class="num"><span class="gap-dpp">賴 +19.2%</span></td>
+              <td>—（近 3 個月同機構僅此 1 波）</td>
+              <td class="sampling-cell">
+                <span class="badge badge-landline">純市話</span><br>
+                分層隨機住宅電話訪問；有效樣本 <strong>1,070 份</strong>；95% 信心水準下誤差 <strong>±3.0%</strong>。
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <footer class="notes">
+      <h3>法規與研究限制備註</h3>
+      <ol>
+        <li>依中華民國《公職人員選舉罷免法》第 53 條規定，2026 年 11 月 28 日投票日前 10 日起至投票時間截止前，依法不得發布、報導、散布、評論或引述任何有關候選人或選舉之民意調查資料。</li>
+        <li>上述資料僅收錄近 3 個月（2026/08/16–11/16）對外公開揭露且可查證之調查結果；未列入多波比較的機構可能曾執行內部追蹤但未公開。</li>
+      </ol>
+    </footer>
+  </div>
+
+  <div id="chart-tooltip" class="chart-tooltip hidden"></div>
+
+  <script>
+    const CHART_DATA = {
+      taipei: {
+        kmtName: '蔣萬安',
+        dppName: '沈伯洋',
+        hasMulti: true,
+        orgs: [
+          {
+            name: 'TVBS',
+            color: '#2563eb',
+            points: [
+              { date: '10/08', x: 35, kmt: 49, dpp: 41, sample: '市話為主（有投票意願）' },
+              { date: '10月底', x: 56, kmt: 46, dpp: 42, sample: '電話訪問（有投票意願）' },
+              { date: '11/15', x: 92, kmt: 46, dpp: 44, sample: '雙底冊 n=1,331 (673/658) ±2.7%' }
+            ]
+          },
+          {
+            name: 'ETtoday',
+            color: '#0d9488',
+            points: [
+              { date: '10/25', x: 50, kmt: 48.6, dpp: 41.1, sample: '網路問卷 n=1,462 ±2.56%' },
+              { date: '11/01', x: 64, kmt: 52.0, dpp: 40.7, sample: '網路問卷 n=1,965 ±2.2%' },
+              { date: '11/03', x: 72, kmt: 50.7, dpp: 41.9, sample: '網路問卷 n=1,853 ±2.28%' },
+              { date: '11/15', x: 94, kmt: 48.1, dpp: 42.0, sample: '網路問卷 n=1,505 ±2.53%' }
+            ]
+          },
+          {
+            name: '信民協會',
+            color: '#d97706',
+            points: [
+              { date: '9/18', x: 12, kmt: 41.7, dpp: 40.5, sample: '雙架構 n=1,076 (752/324) ±3.0%' },
+              { date: '10/16', x: 42, kmt: 33.3, dpp: 50.3, sample: '雙架構 n=1,075 (753/322) ±3.0%' },
+              { date: '11/13', x: 88, kmt: 33.8, dpp: 48.6, sample: '雙架構 n=1,072 (750/322) ±3.0%' }
+            ]
+          }
+        ],
+        singles: [
+          { name: '新台灣國策智庫', date: '11/12', x: 84, kmt: 42.2, dpp: 46.3, sample: '傳統電訪（未載明樣本明細）' },
+          { name: '鋒燦傳媒', date: '11月中', x: 90, kmt: 43.0, dpp: 44.7, sample: '單波公開報導' }
+        ]
+      },
+      'new-taipei': {
+        kmtName: '李四川',
+        dppName: '蘇巧慧',
+        hasMulti: true,
+        orgs: [
+          {
+            name: 'TVBS(藍營委託)',
+            color: '#2563eb',
+            points: [
+              { date: '8/29', x: 12, kmt: 39.8, dpp: 33.1, sample: '市話為主（約1,000–1,100份 ±3.0%）' },
+              { date: '10月初', x: 48, kmt: 42.6, dpp: 35.9, sample: '市話為主（未決定 19.9%）' }
+            ]
+          },
+          {
+            name: '信民協會',
+            color: '#d97706',
+            points: [
+              { date: '8/28', x: 10, kmt: 34.7, dpp: 35.2, sample: '雙架構 n=1,071 (749/322) ±3.0%' },
+              { date: '10/08', x: 54, kmt: 30.0, dpp: 43.1, sample: '雙架構 n=1,073 (750/323) ±3.0%' }
+            ]
+          }
+        ],
+        singles: [
+          { name: '年代民調', date: '8/26', x: 6, kmt: 32.2, dpp: 37.8, sample: '傳統電話訪問' },
+          { name: '震傳媒/山水', date: '9/21', x: 35, kmt: 37.1, dpp: 38.2, sample: '純市話 n=1,076 ±2.99%' },
+          { name: '聯合報', date: '11/07', x: 82, kmt: 39.0, dpp: 42.0, sample: '雙底冊 n=1,114 ±3.0%' },
+          { name: '台灣研究學會', date: '11/10', x: 88, kmt: 43.1, dpp: 38.4, sample: '雙底冊 n=1,373 (1000/373) ±2.64%' },
+          { name: '中時/艾普羅', date: '11/13', x: 94, kmt: 37.0, dpp: 33.4, sample: '純市話 n=1,083 ±3.0%' }
+        ]
+      },
+      taoyuan: {
+        kmtName: '張善政',
+        dppName: '黃世杰',
+        hasMulti: false,
+        orgs: [],
+        singles: [
+          { name: '新台灣國策智庫', date: '9/15–17', kmt: 47.0, dpp: 25.9, sample: '純市話 n=1,082 ±2.98%' },
+          { name: 'ETtoday民調雲', date: '10/29–11/1', kmt: 47.4, dpp: 36.0, sample: '網路問卷 n=1,190 ±2.84%' },
+          { name: '年代民調中心', date: '11/2–4', kmt: 35.0, dpp: 28.0, sample: '純市話 n=1,072 ±3.0%' },
+          { name: '信民協會', date: '11/4–6', kmt: 36.9, dpp: 32.8, sample: '雙架構 n=1,074 (751/323) ±3.0%' }
+        ]
+      },
+      taichung: {
+        kmtName: '江啟臣',
+        dppName: '何欣純',
+        hasMulti: true,
+        orgs: [
+          {
+            name: '世新大學(藍營委託)',
+            color: '#2563eb',
+            points: [
+              { date: '10/16', x: 45, kmt: 39.8, dpp: 28.7, sample: '電訪 n=1,070 ±3.0%' },
+              { date: '11/07', x: 86, kmt: 39.2, dpp: 30.0, sample: '純市話 CATI n=1,068 ±3.0%' }
+            ]
+          }
+        ],
+        singles: [
+          { name: 'TVBS(藍營委託)', date: '9/11', x: 14, kmt: 45.1, dpp: 32.5, sample: '電訪 n=1,086 ±3.0%' },
+          { name: '年代民調', date: '10月初', x: 32, kmt: 37.3, dpp: 31.3, sample: '純市話 n=1,068 ±3.0%' },
+          { name: '信民協會', date: '10/30', x: 72, kmt: 30.4, dpp: 41.1, sample: '雙架構 n=1,077 (752/325) ±3.0%' },
+          { name: '佛光大學(藍營委託)', date: '10/31', x: 76, kmt: 38.3, dpp: 28.1, sample: '純市話 n=1,003 ±3.1%' }
+        ]
+      },
+      tainan: {
+        kmtName: '謝龍介',
+        dppName: '陳亭妃',
+        hasMulti: true,
+        orgs: [
+          {
+            name: 'TPOC AI模擬(非抽樣)',
+            color: '#7c3aed',
+            points: [
+              { date: '10/19', x: 48, kmt: 33.8, dpp: 45.9, sample: 'AI 矽基樣本 15,453 代理人（非機率抽樣）' },
+              { date: '11/11', x: 86, kmt: 39.5, dpp: 49.1, sample: 'AI 矽基樣本 15,453 代理人（非機率抽樣）' }
+            ]
+          }
+        ],
+        singles: [
+          { name: '新台灣國策智庫', date: '10/15', x: 42, kmt: 22.6, dpp: 59.4, sample: '純市話 n=1,071 ±2.98%' }
+        ]
+      },
+      kaohsiung: {
+        kmtName: '柯志恩',
+        dppName: '賴瑞隆',
+        hasMulti: false,
+        orgs: [],
+        singles: [
+          { name: '鋒燦傳媒', date: '10/16–21', kmt: 27.4, dpp: 47.8, sample: '市話+網路 n=1,824 (1014/810) ±2.30%' },
+          { name: 'ETtoday民調雲', date: '10/20–25', kmt: 43.1, dpp: 43.2, sample: '網路問卷 n=1,338 ±2.68%' },
+          { name: '聯合報', date: '10/28–31', kmt: 33.0, dpp: 40.0, sample: '市話+手機 n=1,101 ±3.0%' },
+          { name: '年代民調中心', date: '11/12–14', kmt: 24.7, dpp: 43.9, sample: '純市話 n=1,070 ±3.0%' }
+        ]
+      }
+    };
+
+    let currentFilterMode = 'all';
+    const tipEl = document.getElementById('chart-tooltip');
+
+    function showTip(evt, html) {
+      tipEl.innerHTML = html;
+      tipEl.classList.remove('hidden');
+      let left = evt.clientX + 12;
+      let top = evt.clientY - 78;
+      if (left + 275 > window.innerWidth) left = evt.clientX - 275;
+      if (top < 8) top = evt.clientY + 14;
+      tipEl.style.left = left + 'px';
+      tipEl.style.top = top + 'px';
+    }
+
+    function hideTip() {
+      tipEl.classList.add('hidden');
+    }
+
+    const SINGLE_STYLES = [
+      { shape: 'diamond', color: '#0284c7' },
+      { shape: 'triangle', color: '#9333ea' },
+      { shape: 'square', color: '#db2777' },
+      { shape: 'inv-triangle', color: '#ea580c' },
+      { shape: 'hexagon', color: '#0f766e' }
+    ];
+
+    function getSingleStyle(idx) {
+      return SINGLE_STYLES[idx % SINGLE_STYLES.length];
+    }
+
+    function drawSingleMarkerSVG(shape, cx, cy, color, r = 5.5, extra = '') {
+      const common = `fill="#ffffff" stroke="${color}" stroke-width="2" ${extra}`;
+      if (shape === 'diamond') {
+        return `<polygon points="${cx},${cy - r} ${cx + r},${cy} ${cx},${cy + r} ${cx - r},${cy}" ${common} />`;
+      }
+      if (shape === 'triangle') {
+        return `<polygon points="${cx},${cy - r} ${cx + r},${cy + r * 0.85} ${cx - r},${cy + r * 0.85}" ${common} />`;
+      }
+      if (shape === 'square') {
+        const s = r * 1.65;
+        return `<rect x="${cx - s / 2}" y="${cy - s / 2}" width="${s}" height="${s}" rx="1.2" ${common} />`;
+      }
+      if (shape === 'inv-triangle') {
+        return `<polygon points="${cx - r},${cy - r * 0.85} ${cx + r},${cy - r * 0.85} ${cx},${cy + r}" ${common} />`;
+      }
+      const pts = [];
+      for (let i = 0; i < 6; i++) {
+        const ang = (Math.PI / 3) * i - Math.PI / 6;
+        pts.push(`${(cx + r * Math.cos(ang)).toFixed(1)},${(cy + r * Math.sin(ang)).toFixed(1)}`);
+      }
+      return `<polygon points="${pts.join(' ')}" ${common} />`;
+    }
+
+    function markerLegendHTML(shape, color) {
+      return `<svg width="13" height="13" viewBox="0 0 14 14" style="display:inline-block;vertical-align:middle;">${drawSingleMarkerSVG(shape, 7, 7, color, 5)}</svg>`;
+    }
+
+    function buildTrendChart(cityId, d) {
+      const includeSingles = currentFilterMode === 'all';
+      const diffs = d.orgs.flatMap((o) => o.points.map((p) => p.kmt - p.dpp));
+      if (includeSingles) d.singles.forEach((s) => diffs.push(s.kmt - s.dpp));
+      const rawMax = Math.max(10, ...diffs.map((v) => Math.abs(v)));
+      const yMax = Math.ceil((rawMax + 4) / 5) * 5;
+      const yMin = -yMax;
+
+      const W = 820;
+      const H = 210;
+      const pad = { top: 20, right: 28, bottom: 28, left: 50 };
+      const cw = W - pad.left - pad.right;
+      const ch = H - pad.top - pad.bottom;
+      const xPos = (pct) => pad.left + (pct / 100) * cw;
+      const yPos = (val) => pad.top + ((yMax - val) / (yMax - yMin)) * ch;
+
+      let svg = `<svg viewBox="0 0 ${W} ${H}" style="width:100%;height:auto;display:block;">`;
+      [yMax, Math.round(yMax / 2), 0, -Math.round(yMax / 2), yMin].forEach((t) => {
+        const y = yPos(t);
+        const z = t === 0;
+        svg += `<line x1="${pad.left}" y1="${y}" x2="${W - pad.right}" y2="${y}" stroke="${z ? '#334155' : '#dbe3ee'}" stroke-width="${z ? 1.3 : 0.9}" ${z ? 'stroke-dasharray="4 3"' : ''} />`;
+        svg += `<text x="${pad.left - 8}" y="${y + 4}" text-anchor="end" fill="#64748b" font-size="11">${t > 0 ? '+' + t : t}%</text>`;
+      });
+
+      svg += `<text x="${pad.left + 6}" y="${pad.top + 11}" fill="#1d4ed8" font-size="11" font-weight="700">▲ ${d.kmtName}領先</text>`;
+      svg += `<text x="${pad.left + 6}" y="${H - pad.bottom - 5}" fill="#15803d" font-size="11" font-weight="700">▼ ${d.dppName}領先</text>`;
+
+      [
+        { label: '8月下旬', x: 8 },
+        { label: '9月中旬', x: 26 },
+        { label: '10月上旬', x: 46 },
+        { label: '10月下旬', x: 66 },
+        { label: '11月中旬(封關)', x: 90 }
+      ].forEach((m) => {
+        svg += `<text x="${xPos(m.x)}" y="${H - 6}" text-anchor="middle" fill="#64748b" font-size="11">${m.label}</text>`;
+      });
+
+      d.orgs.forEach((o, oi) => {
+        const pts = o.points.map((p) => `${xPos(p.x).toFixed(1)},${yPos(p.kmt - p.dpp).toFixed(1)}`).join(' ');
+        svg += `<polyline fill="none" stroke="${o.color}" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round" points="${pts}" />`;
+        o.points.forEach((p, pi) => {
+          const cx = xPos(p.x);
+          const cy = yPos(p.kmt - p.dpp);
+          const diff = (p.kmt - p.dpp).toFixed(1);
+          svg += `<circle cx="${cx}" cy="${cy}" r="5" fill="${o.color}" stroke="#fff" stroke-width="1.5" style="cursor:pointer" data-city="${cityId}" data-kind="multi" data-oi="${oi}" data-pi="${pi}" class="svg-pt" />`;
+          svg += `<text x="${cx}" y="${cy - 9}" text-anchor="middle" fill="#0f172a" font-size="11" font-weight="700">${diff > 0 ? '+' + diff : diff}%</text>`;
+        });
+      });
+
+      if (includeSingles) {
+        d.singles.forEach((s, si) => {
+          const cx = xPos(s.x);
+          const cy = yPos(s.kmt - s.dpp);
+          const st = getSingleStyle(si);
+          const diff = (s.kmt - s.dpp).toFixed(1);
+          svg += drawSingleMarkerSVG(
+            st.shape,
+            cx,
+            cy,
+            st.color,
+            5.5,
+            `style="cursor:pointer" data-city="${cityId}" data-kind="single" data-si="${si}" class="svg-pt"`
+          );
+          svg += `<text x="${cx}" y="${cy + 15}" text-anchor="middle" fill="${st.color}" font-size="10.5" font-weight="700">${diff > 0 ? '+' + diff : diff}%</text>`;
+        });
+      }
+
+      svg += `</svg>`;
+
+      const multiLegend = d.orgs
+        .map(
+          (o) =>
+            `<span class="legend-item"><span style="width:10px;height:10px;border-radius:50%;background:${o.color};display:inline-block;"></span>${o.name}</span>`
+        )
+        .join('');
+      const singleLegend =
+        includeSingles && d.singles.length
+          ? d.singles
+              .map((s, si) => {
+                const st = getSingleStyle(si);
+                return `<span class="legend-item" style="font-weight:500;">${markerLegendHTML(st.shape, st.color)}<span>${s.name}<span style="color:#64748b;">(單波)</span></span></span>`;
+              })
+              .join('')
+          : '';
+      const legend = multiLegend + singleLegend;
+
+      return `<div class="chart-panel-head"><span><strong>視覺化走勢：</strong>領先差距（藍減綠 %，同機構連線）</span><div class="chart-legend">${legend}</div></div>${svg}`;
+    }
+
+    function buildBarChart(cityId, d) {
+      const W = 820;
+      const rowH = 44;
+      const pad = { top: 10, right: 50, bottom: 20, left: 185 };
+      const H = pad.top + pad.bottom + d.singles.length * rowH;
+      const cw = W - pad.left - pad.right;
+      const xPos = (v) => pad.left + (v / 60) * cw;
+
+      let svg = `<svg viewBox="0 0 ${W} ${H}" style="width:100%;height:auto;display:block;">`;
+      [0, 15, 30, 45, 60].forEach((t) => {
+        const x = xPos(t);
+        svg += `<line x1="${x}" y1="${pad.top}" x2="${x}" y2="${H - pad.bottom}" stroke="#dbe3ee" stroke-width="0.9" />`;
+        svg += `<text x="${x}" y="${H - 4}" text-anchor="middle" fill="#64748b" font-size="11">${t}%</text>`;
+      });
+
+      d.singles.forEach((s, si) => {
+        const y0 = pad.top + si * rowH;
+        const st = getSingleStyle(si);
+        svg += drawSingleMarkerSVG(st.shape, 12, y0 + 13, st.color, 5);
+        svg += `<text x="${pad.left - 8}" y="${y0 + 16}" text-anchor="end" fill="#0f172a" font-size="12" font-weight="700">${s.name}</text>`;
+        svg += `<text x="${pad.left - 8}" y="${y0 + 30}" text-anchor="end" fill="#64748b" font-size="11">${s.date}</text>`;
+
+        const wK = Math.max(0, xPos(s.kmt) - pad.left);
+        svg += `<rect x="${pad.left}" y="${y0 + 5}" width="${wK}" height="12" rx="2" fill="#2563eb" style="cursor:pointer" data-city="${cityId}" data-kind="single" data-si="${si}" class="svg-pt" />`;
+        svg += `<text x="${pad.left + wK + 6}" y="${y0 + 15}" fill="#0f172a" font-size="11" font-weight="700">${s.kmt}%</text>`;
+
+        const wD = Math.max(0, xPos(s.dpp) - pad.left);
+        svg += `<rect x="${pad.left}" y="${y0 + 21}" width="${wD}" height="12" rx="2" fill="#16a34a" style="cursor:pointer" data-city="${cityId}" data-kind="single" data-si="${si}" class="svg-pt" />`;
+        svg += `<text x="${pad.left + wD + 6}" y="${y0 + 31}" fill="#0f172a" font-size="11" font-weight="700">${s.dpp}%</text>`;
+      });
+
+      svg += `</svg>`;
+
+      const candLegend = `<span class="legend-item"><span style="width:10px;height:10px;border-radius:2px;background:#2563eb;display:inline-block;"></span>${d.kmtName}</span><span class="legend-item"><span style="width:10px;height:10px;border-radius:2px;background:#16a34a;display:inline-block;"></span>${d.dppName}</span>`;
+      const orgLegend = d.singles
+        .map((s, si) => {
+          const st = getSingleStyle(si);
+          return `<span class="legend-item" style="font-weight:500;">${markerLegendHTML(st.shape, st.color)}${s.name}</span>`;
+        })
+        .join('');
+      const legend = candLegend + orgLegend;
+      return `<div class="chart-panel-head"><span><strong>單波並列視覺化：</strong>無同機構第 2 波，僅列各機構支持度對比</span><div class="chart-legend">${legend}</div></div>${svg}`;
+    }
+
+    function renderAllCharts() {
+      Object.entries(CHART_DATA).forEach(([cityId, d]) => {
+        const sec = document.getElementById(cityId);
+        if (!sec) return;
+        let panel = sec.querySelector('.chart-panel');
+        if (!panel) {
+          panel = document.createElement('div');
+          panel.className = 'chart-panel';
+          const tableWrap = sec.querySelector('.table-wrap');
+          sec.insertBefore(panel, tableWrap);
+        }
+        panel.innerHTML = d.hasMulti ? buildTrendChart(cityId, d) : buildBarChart(cityId, d);
+      });
+
+      document.querySelectorAll('.svg-pt').forEach((el) => {
+        el.addEventListener('mousemove', (e) => {
+          const cid = el.getAttribute('data-city');
+          const d = CHART_DATA[cid];
+          const kind = el.getAttribute('data-kind');
+          if (kind === 'multi') {
+            const o = d.orgs[+el.getAttribute('data-oi')];
+            const p = o.points[+el.getAttribute('data-pi')];
+            const diff = (p.kmt - p.dpp).toFixed(1);
+            const leader = diff >= 0 ? `${d.kmtName} +${diff}%` : `${d.dppName} +${Math.abs(diff).toFixed(1)}%`;
+            showTip(
+              e,
+              `<div style="font-weight:700;margin-bottom:3px;">${o.name}（${p.date}）</div>
+               <div>${d.kmtName}：<strong>${p.kmt}%</strong>｜${d.dppName}：<strong>${p.dpp}%</strong></div>
+               <div>差距：<strong>${leader}</strong></div>
+               <div style="color:#64748b;margin-top:3px;">${p.sample}</div>`
+            );
+          } else {
+            const s = d.singles[+el.getAttribute('data-si')];
+            const diff = (s.kmt - s.dpp).toFixed(1);
+            const leader = diff >= 0 ? `${d.kmtName} +${diff}%` : `${d.dppName} +${Math.abs(diff).toFixed(1)}%`;
+            showTip(
+              e,
+              `<div style="font-weight:700;margin-bottom:3px;">${s.name}（${s.date}）</div>
+               <div>${d.kmtName}：<strong>${s.kmt}%</strong>｜${d.dppName}：<strong>${s.dpp}%</strong></div>
+               <div>差距：<strong>${leader}</strong></div>
+               <div style="color:#64748b;margin-top:3px;">${s.sample}</div>`
+            );
+          }
+        });
+        el.addEventListener('mouseleave', hideTip);
+      });
+    }
+
+    function setFilter(mode, btn) {
+      currentFilterMode = mode;
+      document.querySelectorAll('.btn-filter').forEach((b) => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const sections = document.querySelectorAll('.city-section');
+      sections.forEach((sec) => {
+        const hasMulti = sec.getAttribute('data-has-multi') === 'true';
+        const singles = sec.querySelectorAll('tr.single-wave');
+        if (mode === 'multi') {
+          if (!hasMulti) {
+            sec.classList.add('hidden');
+          } else {
+            sec.classList.remove('hidden');
+            singles.forEach((row) => row.classList.add('hidden'));
+          }
+        } else {
+          sec.classList.remove('hidden');
+          singles.forEach((row) => row.classList.remove('hidden'));
+        }
+      });
+
+      renderAllCharts();
+    }
+
+    renderAllCharts();
+  </script>
+</body>
+</html>
