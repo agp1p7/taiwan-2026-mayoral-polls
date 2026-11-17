@@ -609,9 +609,9 @@
     <div id="tab-charts" class="tab-pane">
       <div class="tab-subbar">
         <div class="kpi-strip">
-          <span class="kpi-pill"><span class="dot dot-multi"></span><strong>具同機構連續變化：</strong>臺北市（3 家）、新北市（2 家）、臺中市（1 家）</span>
+          <span class="kpi-pill"><span class="dot dot-multi"></span><strong>具同機構連續變化：</strong>臺北市（3 家）、新北市（2 家）、臺中市（1 家）、高雄市（1 家）</span>
           <span class="kpi-pill"><span class="dot" style="background:#7c3aed;"></span><strong>AI 模擬 2 期：</strong>臺南市 TPOC（傳統抽樣僅 1 波）</span>
-          <span class="kpi-pill"><span class="dot dot-single"></span><strong>近 3 個月僅單波：</strong>桃園市、高雄市（並列各機構單次調查）</span>
+          <span class="kpi-pill"><span class="dot dot-single"></span><strong>近 3 個月僅單波：</strong>桃園市（並列各機構單次調查）</span>
         </div>
       </div>
       <div id="charts-grid" class="charts-grid"></div>
@@ -661,6 +661,64 @@
         <div class="chart-card-foot" style="margin-top:12px;">
           <span>出處：TPOC台灣議題研究中心（11/11 第八期 AI 模擬與 11 月中旬得票率預測／上報、蕃新聞、鏡新聞）</span>
           <button class="btn-jump" onclick="goToCityTable('tpoc-forecast')">查看完整 TPOC 數據表 →</button>
+        </div>
+      </section>
+
+      <!-- 各黨支持者表態率（政黨傾向交叉分析） -->
+      <section class="card" style="margin-top:18px;border-top-color:#0f766e;">
+        <div class="city-header">
+          <div class="city-title">
+            <h2>六都「各黨支持者表態率」｜政黨傾向交叉分析</h2>
+            <span class="badge badge-dual">僅列公開揭露交叉表之代表機構</span>
+          </div>
+          <span class="matchup">藍營・綠營・民眾黨（白營）・中立選民</span>
+        </div>
+        <p class="city-note">彙整各都封關／近期民調公開揭露的受訪者政黨傾向交叉數據（未公布完整交叉表之機構不自行推算）。</p>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:12px 20px;font-size:12.5px;line-height:1.55;">
+          <div style="border:1px solid var(--border);padding:10px 12px;border-radius:3px;">
+            <div style="font-weight:700;margin-bottom:4px;">1. 臺北市 <span style="font-weight:400;color:var(--muted);">（TVBS 11/16 封關）</span></div>
+            <div>• <strong>國民黨支持者：</strong><strong>93%</strong> 挺蔣萬安</div>
+            <div>• <strong>民進黨支持者：</strong><strong>95%</strong> 挺沈伯洋</div>
+            <div>• <strong>民眾黨支持者：</strong><strong>83%</strong> 挺蔣、<strong>10%</strong> 挺沈（合計 93% 表態）</div>
+            <div>• <strong>中立選民：</strong><strong>40%</strong> 挺沈、<strong>37%</strong> 挺蔣（合計 77% 表態｜<strong>22%</strong> 未決定）</div>
+          </div>
+          <div style="border:1px solid var(--border);padding:10px 12px;border-radius:3px;">
+            <div style="font-weight:700;margin-bottom:4px;">2. 新北市 <span style="font-weight:400;color:var(--muted);">（聯合報 11/9・TVBS 10/7）</span></div>
+            <div>• <strong>國民黨支持者：</strong>聯合 <strong>86%</strong>／TVBS <strong>83.7%</strong> 挺李四川</div>
+            <div>• <strong>民進黨支持者：</strong>聯合 <strong>91%</strong>／TVBS <strong>90.6%</strong> 挺蘇巧慧</div>
+            <div>• <strong>民眾黨支持者：</strong>聯合 <strong>82%</strong> 挺李・<strong>10%</strong> 挺蘇；TVBS <strong>77.8%</strong> 挺李・<strong>1.8%</strong> 挺蘇</div>
+            <div>• <strong>中立選民：</strong>聯合 <strong>29%</strong> 挺李、<strong>31%</strong> 挺蘇（約 4 成未決定／觀望）</div>
+          </div>
+          <div style="border:1px solid var(--border);padding:10px 12px;border-radius:3px;">
+            <div style="font-weight:700;margin-bottom:4px;">3. 桃園市 <span style="font-weight:400;color:var(--muted);">（信民協會 11/10）</span></div>
+            <div>• <strong>藍綠傾向：</strong>張善政「人大於黨」靠個人聲望領先；政黨輪替意向「換民進黨」33.8% vs「藍續任」31.0%</div>
+            <div>• <strong>民眾黨支持者：</strong>公開報導未單獨拆列民眾黨交叉百分比</div>
+            <div>• <strong>中立／年輕選民：</strong>逾 <strong>55%</strong> 對黃世杰「無評價或不認識」</div>
+          </div>
+          <div style="border:1px solid var(--border);padding:10px 12px;border-radius:3px;">
+            <div style="font-weight:700;margin-bottom:4px;">4. 臺中市 <span style="font-weight:400;color:var(--muted);">（信民協會 11/3）</span></div>
+            <div>• <strong>國民黨支持者：</strong>泛藍高度挺江啟臣（樣本中藍傾向 19.6%）</div>
+            <div>• <strong>民進黨支持者：</strong>泛綠及想換黨者近 <strong>9 成</strong>挺何欣純（樣本中綠傾向 34.4%）</div>
+            <div>• <strong>民眾黨支持者：</strong>樣本中佔 <strong>3.5%</strong>，多數較支持江啟臣</div>
+            <div>• <strong>中立／未表態：</strong>未明確表態 <strong>20.8%</strong>、不投票 <strong>7.0%</strong></div>
+          </div>
+          <div style="border:1px solid var(--border);padding:10px 12px;border-radius:3px;">
+            <div style="font-weight:700;margin-bottom:4px;">5. 臺南市 <span style="font-weight:400;color:var(--muted);">（新台灣國策智庫 10/21）</span></div>
+            <div>• <strong>民進黨支持者：</strong><strong>89%–94%</strong> 挺陳亭妃（約 5% 挺謝）</div>
+            <div>• <strong>國民黨支持者：</strong><strong>78.9%–95.1%</strong> 挺謝龍介（約 11.6% 對陳有好感或支持）</div>
+            <div>• <strong>民眾黨支持者：</strong><strong>38.1%–42.8%</strong> 表態支持陳亭妃（欣賞度逾 6 成）</div>
+            <div>• <strong>中立／未表態：</strong>全體未表態率 <strong>17.0%</strong>（未單獨拆列中立交叉％）</div>
+          </div>
+          <div style="border:1px solid var(--border);padding:10px 12px;border-radius:3px;">
+            <div style="font-weight:700;margin-bottom:4px;">6. 高雄市 <span style="font-weight:400;color:var(--muted);">（ETtoday 11/17 封關）</span></div>
+            <div>• <strong>藍綠基本盤：</strong>雙方基本盤皆高度歸隊（柯 46.1% vs 賴 44.6%）</div>
+            <div>• <strong>民眾黨支持者：</strong>公開報導未單獨拆列民眾黨交叉百分比</div>
+            <div>• <strong>中立／中間選民：</strong>無政黨傾向選民<strong>過半</strong>傾向支持柯志恩（全體未表態 <strong>7.7%</strong>）</div>
+          </div>
+        </div>
+        <div class="chart-card-foot" style="margin-top:12px;">
+          <span>出處：TVBS、聯合報、信民協會、新台灣國策智庫、ETtoday民調雲公開交叉分析報導</span>
+          <button class="btn-jump" onclick="goToCityTable('party-clarity')">查看第 8 節完整彙整表 →</button>
         </div>
       </section>
     </div>
@@ -1371,15 +1429,15 @@
     </section>
 
     <!-- 6. 高雄市 -->
-    <section class="card city-section" id="kaohsiung" data-has-multi="false">
+    <section class="card city-section" id="kaohsiung" data-has-multi="true">
       <div class="city-header">
         <div class="city-title">
           <h2>6. 高雄市</h2>
-          <span class="badge badge-single">近 3 個月查無同機構第 2 波公開資料</span>
+          <span class="badge badge-multi">1 家機構具同機構連續變化</span>
         </div>
         <span class="matchup">民進黨：賴瑞隆 vs 國民黨：柯志恩</span>
       </div>
-      <p class="city-note">近 3 個月（2026/8/16–11/16）各機構僅有單次公開調查，因各家採純市話、網路或市話＋網路混合模式而有顯著機構差異，不跨機構換算變化。</p>
+      <p class="city-note">近 3 個月內 ETtoday民調雲公開發布 2 波調查（10/30、11/17 封關），可追蹤同機構變化；鋒燦、聯合報與年代民調中心各為單次公開調查。</p>
       <div class="table-wrap">
         <table>
           <thead>
@@ -1395,6 +1453,39 @@
             </tr>
           </thead>
           <tbody>
+            <tr class="multi-row">
+              <td rowspan="2">
+                <span class="org-name">ETtoday民調雲</span>
+                <span class="org-sub">共 2 波追蹤</span>
+              </td>
+              <td>10/20–25 調查（10/30 公布）</td>
+              <td class="num">43.2%</td>
+              <td class="num">43.1%</td>
+              <td class="num"><span class="gap-dpp">賴 +0.1%</span></td>
+              <td class="sampling-cell"><strong>總表態率 86.8%</strong>（綠 43.2%・藍 43.1%・其他 0.5%）<span class="undecided">尚未決定 12.7%</span></td>
+              <td rowspan="2" class="change-cell">
+                <strong>賴瑞隆：</strong>43.2% → 44.6%（<strong>+1.4%</strong>）<br>
+                <strong>柯志恩：</strong>43.1% → 46.1%（<strong>+3.0%</strong>）<br>
+                由賴 +0.1% 反轉為柯 +1.5%。
+              </td>
+              <td class="sampling-cell">
+                <span class="badge badge-online">封閉式網路問卷</span><br>
+                EDM 及手機簡訊通知分層比例抽樣（設籍高雄 38 區）；有效樣本 <strong>1,338 份</strong>；95% 信心水準下誤差 <strong>±2.68%</strong>。<br>
+                <span class="undecided">出處：ETtoday民調雲／風傳媒、TVBS新聞網、上報（2026/10/30）</span>
+              </td>
+            </tr>
+            <tr class="multi-row">
+              <td>11/17 封關公布</td>
+              <td class="num">44.6%</td>
+              <td class="num">46.1%</td>
+              <td class="num"><span class="gap-kmt">柯 +1.5%</span></td>
+              <td class="sampling-cell"><strong>總表態率 92.3%</strong>（藍 46.1%・綠 44.6%・其他 1.6%）<span class="undecided">尚未決定/無意見 7.7%</span></td>
+              <td class="sampling-cell">
+                <span class="badge badge-online">封閉式網路問卷</span><br>
+                針對「一定會（81.9%）」與「可能會（9.9%）」投票受訪者；無政黨傾向中間選民過半挺柯。<br>
+                <span class="undecided">出處：ETtoday民調雲／ETtoday新聞雲、風傳媒（2026/11/17）</span>
+              </td>
+            </tr>
             <tr class="single-wave">
               <td><span class="org-name">鋒燦傳媒</span></td>
               <td>10/16–21 調查（11/2 報導）</td>
@@ -1407,20 +1498,6 @@
                 <span class="badge badge-hybrid">市話＋網路混合</span><br>
                 雙重抽樣；有效樣本 <strong>1,824 份</strong>（市話 1,014、網路 810）；95% 信心水準下誤差 <strong>±2.30%</strong>（依性別、年齡、行政區加權）。<br>
                 <span class="undecided">出處：鋒燦傳媒／風傳媒、Newtalk新頭殼、ETtoday新聞雲（2026/11/02）</span>
-              </td>
-            </tr>
-            <tr class="single-wave">
-              <td><span class="org-name">ETtoday民調雲</span></td>
-              <td>10/20–25 調查（10/30 公布）</td>
-              <td class="num">43.2%</td>
-              <td class="num">43.1%</td>
-              <td class="num"><span class="gap-dpp">賴 +0.1%</span></td>
-              <td class="sampling-cell"><strong>總表態率 86.8%</strong>（綠 43.2%・藍 43.1%・其他 0.5%）<span class="undecided">尚未決定 12.7%</span></td>
-              <td>—（近 3 個月同機構僅此 1 波）</td>
-              <td class="sampling-cell">
-                <span class="badge badge-online">封閉式網路問卷</span><br>
-                EDM 及手機簡訊通知分層比例抽樣（設籍高雄 38 區）；有效樣本 <strong>1,338 份</strong>；95% 信心水準下誤差 <strong>±2.68%</strong>。<br>
-                <span class="undecided">出處：ETtoday民調雲／風傳媒、TVBS新聞網、上報（2026/10/30）</span>
               </td>
             </tr>
             <tr class="single-wave">
@@ -1526,6 +1603,82 @@
               <td>賴瑞隆 <strong>55.00%</strong> vs 柯志恩 <strong>45.00%</strong></td>
               <td class="num"><span class="gap-dpp">賴 +10.00%</span></td>
               <td class="sampling-cell">TPOC台灣議題研究中心／上報、LINE TODAY（2026/11月中旬）</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 8. 各黨支持者表態率（政黨傾向交叉分析） -->
+    <section class="card" id="party-clarity" style="border-top-color:#0f766e;">
+      <div class="city-header">
+        <div class="city-title">
+          <h2>8. 六都「各黨支持者表態率」與政黨傾向交叉分析</h2>
+          <span class="badge badge-dual">僅列公開揭露交叉表之代表機構</span>
+        </div>
+        <span class="matchup">藍營・綠營・民眾黨（白營）・中立選民</span>
+      </div>
+      <p class="city-note">彙整各都封關或近期民調公開揭露的受訪者政黨傾向交叉數據；未公布完整交叉表之機構不自行推算。</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>直轄市</th>
+              <th>參考民調機構 / 時間</th>
+              <th>國民黨支持者</th>
+              <th>民進黨支持者</th>
+              <th>民眾黨支持者（白營）</th>
+              <th>中立／無政黨傾向選民</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>臺北市</strong></td>
+              <td>TVBS（11/16 封關）</td>
+              <td><strong>93%</strong> 挺蔣萬安</td>
+              <td><strong>95%</strong> 挺沈伯洋</td>
+              <td><strong>83%</strong> 挺蔣、<strong>10%</strong> 挺沈（合計 93% 表態）</td>
+              <td><strong>40%</strong> 挺沈、<strong>37%</strong> 挺蔣（合計 77% 表態｜<strong>22%</strong> 未決定）</td>
+            </tr>
+            <tr>
+              <td><strong>新北市</strong></td>
+              <td>聯合報（11/9）／TVBS（10/7）</td>
+              <td>聯合 <strong>86%</strong>／TVBS <strong>83.7%</strong> 挺李四川</td>
+              <td>聯合 <strong>91%</strong>／TVBS <strong>90.6%</strong> 挺蘇巧慧</td>
+              <td>聯合 <strong>82%</strong> 挺李・<strong>10%</strong> 挺蘇；TVBS <strong>77.8%</strong> 挺李・<strong>1.8%</strong> 挺蘇</td>
+              <td>聯合：<strong>29%</strong> 挺李、<strong>31%</strong> 挺蘇（約 4 成未決定／觀望）</td>
+            </tr>
+            <tr>
+              <td><strong>桃園市</strong></td>
+              <td>信民協會（11/10）</td>
+              <td>「人大於黨」，張善政個人聲望支撐領先</td>
+              <td>政黨輪替意向「換民進黨」33.8% vs「藍續任」31.0%</td>
+              <td class="undecided">公開報導未單獨拆列民眾黨交叉百分比</td>
+              <td>逾 <strong>55%</strong> 中立與年輕選民對黃世杰「無評價或不認識」</td>
+            </tr>
+            <tr>
+              <td><strong>臺中市</strong></td>
+              <td>信民協會（11/3）</td>
+              <td>泛藍支持者高度挺江啟臣（樣本藍傾向 19.6%）</td>
+              <td>泛綠及想輪替者近 <strong>9 成</strong>挺何欣純（樣本綠傾向 34.4%）</td>
+              <td>樣本中民眾黨傾向 <strong>3.5%</strong>，多數較支持江啟臣</td>
+              <td>全體未明確表態 <strong>20.8%</strong>、不投票 <strong>7.0%</strong></td>
+            </tr>
+            <tr>
+              <td><strong>臺南市</strong></td>
+              <td>新台灣國策智庫（10/21）</td>
+              <td><strong>78.9%–95.1%</strong> 挺謝龍介（約 <strong>11.6%</strong> 對陳有好感或支持）</td>
+              <td><strong>89%–94%</strong> 挺陳亭妃（約 <strong>5%</strong> 挺謝）</td>
+              <td><strong>38.1%–42.8%</strong> 表態支持陳亭妃（欣賞度逾 6 成）</td>
+              <td>整體未表態率 <strong>17.0%</strong>（未單獨拆列中立交叉％）</td>
+            </tr>
+            <tr>
+              <td><strong>高雄市</strong></td>
+              <td>ETtoday（11/17 封關）</td>
+              <td>傳統藍營基本盤高度凝聚挺柯志恩</td>
+              <td>綠營基本盤高度凝聚挺賴瑞隆</td>
+              <td class="undecided">公開報導未單獨拆列民眾黨交叉百分比</td>
+              <td>無政黨傾向中間選民<strong>過半</strong>傾向支持柯志恩（全體未表態 <strong>7.7%</strong>）</td>
             </tr>
           </tbody>
         </table>
@@ -1804,19 +1957,29 @@
       },
       kaohsiung: {
         title: '6. 高雄市',
-        badgeText: '近 3 個月僅單波公開',
-        badgeClass: 'badge-single',
+        badgeText: '1 家機構同機構多波',
+        badgeClass: 'badge-multi',
         kmtName: '柯志恩',
         dppName: '賴瑞隆',
-        hasMulti: false,
-        latestClarity: '各家表態率：ETtoday 86.8%｜鋒燦 77.6%｜聯合報 74.0%｜年代封關 69.9%（未決定 12.7%～26.0%）',
-        summaryPills: [],
-        orgs: [],
+        hasMulti: true,
+        latestClarity: '封關表態率：ETtoday(11/17) 92.3%（未表態 7.7%）｜年代(11/16) 69.9%（未決定 24.1%・不投票 6.0%）',
+        summaryPills: [
+          { color: '#0d9488', text: 'ETtoday：柯 43.1→46.1% (+3.0%) / 賴 43.2→44.6% (+1.4%)｜由賴 +0.1% 轉柯 +1.5%' }
+        ],
+        orgs: [
+          {
+            name: 'ETtoday民調雲',
+            color: '#0d9488',
+            points: [
+              { date: '10/25', x: 50, kmt: 43.1, dpp: 43.2, clarity: '總表態率 86.8%（綠 43.2%・藍 43.1%・其他 0.5%）｜尚未決定 12.7%', sample: '網路問卷 n=1,338 ±2.68%' },
+              { date: '11/17', x: 98, kmt: 46.1, dpp: 44.6, clarity: '總表態率 92.3%（藍 46.1%・綠 44.6%・其他 1.6%）｜尚未決定 7.7%', sample: '網路問卷（11/17 封關；中間選民過半挺柯）' }
+            ]
+          }
+        ],
         singles: [
-          { name: '鋒燦傳媒', date: '10/16–21', kmt: 27.4, dpp: 47.8, clarity: '總表態率 77.6%（綠 47.8%・藍 27.4%・其他 2.4%）｜沒偏向 12.5%・無意見 9.9%', sample: '市話+網路 n=1,824 (1014/810) ±2.30%' },
-          { name: 'ETtoday民調雲', date: '10/20–25', kmt: 43.1, dpp: 43.2, clarity: '總表態率 86.8%（綠 43.2%・藍 43.1%・其他 0.5%）｜尚未決定 12.7%', sample: '網路問卷 n=1,338 ±2.68%' },
-          { name: '聯合報', date: '10/28–31', kmt: 33.0, dpp: 40.0, clarity: '總表態率約 74.0%（綠 40.0%・藍 33.0%・其他 <1%）｜未決定 26.0%', sample: '市話+手機 n=1,101 ±3.0%' },
-          { name: '年代民調中心', date: '11/12–14', kmt: 24.7, dpp: 43.9, clarity: '總表態率 69.9%（綠 43.9%・藍 24.7%・其他 1.3%）｜尚未決定 24.1%・不投票 6.0%', sample: '純市話 n=1,070 ±3.0%' }
+          { name: '鋒燦傳媒', date: '10/16–21', x: 42, kmt: 27.4, dpp: 47.8, clarity: '總表態率 77.6%（綠 47.8%・藍 27.4%・其他 2.4%）｜沒偏向 12.5%・無意見 9.9%', sample: '市話+網路 n=1,824 (1014/810) ±2.30%' },
+          { name: '聯合報', date: '10/28–31', x: 64, kmt: 33.0, dpp: 40.0, clarity: '總表態率約 74.0%（綠 40.0%・藍 33.0%・其他 <1%）｜未決定 26.0%', sample: '市話+手機 n=1,101 ±3.0%' },
+          { name: '年代民調中心', date: '11/12–14', x: 88, kmt: 24.7, dpp: 43.9, clarity: '總表態率 69.9%（綠 43.9%・藍 24.7%・其他 1.3%）｜尚未決定 24.1%・不投票 6.0%', sample: '純市話 n=1,070 ±3.0%' }
         ]
       }
     };
